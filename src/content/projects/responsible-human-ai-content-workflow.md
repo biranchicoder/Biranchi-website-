@@ -72,17 +72,22 @@ heavy to follow produces false documentation, which is worse than none.
 
 ## Findings
 
-- [Add verified observations here — e.g. where the workflow catches errors most often]
+The clearest recurring observation from applying this workflow daily is that
+the verification stage is where most corrections happen. AI-assisted
+first-pass drafting is rarely wrong in an obviously detectable way — it is
+usually wrong in ways that only surface when a human checks sourcing, nuance
+or argument against the original material. This is an observation from my own
+practice, not a formally evaluated finding.
 
 ## Outputs
 
 - The documented workflow (this page)
 - Verification checklist — see the Technical Writing section for the derived guides
-- The AI-use statement on this site's Trust & Integrity section
 
 ## Impact
 
-- [Add verified impact here]
+Its direct impact is this website and my research materials, all produced
+under this workflow.
 
 ## Limitations
 
@@ -97,12 +102,13 @@ heavy to follow produces false documentation, which is worse than none.
   before it is preparation.
 - Recording AI assistance at the moment of use is cheap; reconstructing it
   later is impossible.
-- [Add further lessons here]
 
 ## Related publication
 
-- [Add related publication when available]
+Not written up as a standalone publication; it operates as documented
+practice rather than a research output.
 
 ## Downloadable materials
 
-- [Add the checklist to public/downloads/ and list it in the frontmatter `downloads` field]
+The verification checklist referenced above is being prepared for standalone
+publication and is not yet posted here.

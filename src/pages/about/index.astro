@@ -1,4 +1,4 @@
----
+﻿---
 import PageLayout from "../../layouts/PageLayout.astro";
 import { url } from "../../lib/paths";
 
@@ -52,10 +52,10 @@ const values = [
       class="h-20 w-20 rounded-full object-cover ring-2 ring-accent/20 sm:h-24 sm:w-24"
     />
     <div>
-      <p class="font-serif text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+      <p class="font-serif text-lg font-semibold text-stone-900 dark:text-stone-100">
         Biranchi Poudyal
       </p>
-      <p class="text-sm text-zinc-500 dark:text-zinc-400">
+      <p class="text-sm text-stone-500 dark:text-stone-400">
         PhD Candidate · Charles Darwin University · Sydney, Australia
       </p>
     </div>
@@ -63,7 +63,7 @@ const values = [
 
   <div class="space-y-14">
     <section aria-labelledby="bio-heading">
-      <h2 id="bio-heading" class="font-serif text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+      <h2 id="bio-heading" class="font-serif text-xl font-semibold text-stone-900 dark:text-stone-100">
         Professional biography
       </h2>
       <div class="prose prose-zinc mt-4 max-w-3xl dark:prose-invert">
@@ -100,7 +100,7 @@ const values = [
     </section>
 
     <section aria-labelledby="phd-heading">
-      <h2 id="phd-heading" class="font-serif text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+      <h2 id="phd-heading" class="font-serif text-xl font-semibold text-stone-900 dark:text-stone-100">
         PhD research
       </h2>
       <div class="prose prose-zinc mt-4 max-w-3xl dark:prose-invert">
@@ -127,7 +127,7 @@ const values = [
     </section>
 
     <section aria-labelledby="interests-heading">
-      <h2 id="interests-heading" class="font-serif text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+      <h2 id="interests-heading" class="font-serif text-xl font-semibold text-stone-900 dark:text-stone-100">
         Research interests
       </h2>
       <ul class="mt-4 grid max-w-3xl gap-x-8 gap-y-2 sm:grid-cols-2">
@@ -142,7 +142,7 @@ const values = [
             "AI governance in higher education",
             "Distributed cognition & cognitive offloading",
           ].map((item) => (
-            <li class="flex items-start gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+            <li class="flex items-start gap-2 text-sm text-stone-600 dark:text-stone-400">
               <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
               {item}
             </li>
@@ -152,25 +152,25 @@ const values = [
     </section>
 
     <section aria-labelledby="methods-heading">
-      <h2 id="methods-heading" class="font-serif text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+      <h2 id="methods-heading" class="font-serif text-xl font-semibold text-stone-900 dark:text-stone-100">
         Methodological experience
       </h2>
-      <p class="mt-4 max-w-3xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+      <p class="mt-4 max-w-3xl text-sm leading-relaxed text-stone-600 dark:text-stone-400">
         Systematic literature review, scoping review, qualitative coding,
         thematic analysis, discourse analysis, conceptual synthesis, and
         document and policy analysis. Each method is described in detail on
-        the <a href="../research/" class="text-accent hover:underline dark:text-cyan-300">Research page</a>.
+        the <a href="../research/" class="text-accent hover:underline dark:text-violet-300">Research page</a>.
       </p>
     </section>
 
     <section aria-labelledby="skills-heading">
-      <h2 id="skills-heading" class="font-serif text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+      <h2 id="skills-heading" class="font-serif text-xl font-semibold text-stone-900 dark:text-stone-100">
         Skills
       </h2>
       <div class="mt-4 flex flex-wrap gap-2">
         {
           skills.map((skill) => (
-            <span class="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+            <span class="rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-xs font-medium text-stone-700 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-300">
               {skill}
             </span>
           ))
@@ -179,10 +179,10 @@ const values = [
     </section>
 
     <section aria-labelledby="goals-heading">
-      <h2 id="goals-heading" class="font-serif text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+      <h2 id="goals-heading" class="font-serif text-xl font-semibold text-stone-900 dark:text-stone-100">
         Professional goals
       </h2>
-      <p class="mt-4 max-w-3xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+      <p class="mt-4 max-w-3xl text-sm leading-relaxed text-stone-600 dark:text-stone-400">
         I am seeking roles and collaborations in AI and education research,
         academic integrity, educational design, responsible AI, policy
         analysis, technical writing and research assistance — work where
@@ -192,28 +192,26 @@ const values = [
     </section>
 
     <section id="integrity" aria-labelledby="values-heading">
-      <h2 id="values-heading" class="font-serif text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+      <h2 id="values-heading" class="font-serif text-xl font-semibold text-stone-900 dark:text-stone-100">
         Values and research principles
       </h2>
       <div class="mt-4 grid gap-4 sm:grid-cols-2">
         {
           values.map((v) => (
-            <div class="rounded-lg border border-zinc-200 p-5 dark:border-zinc-800">
-              <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+            <div class="rounded-lg border border-stone-200 p-5 dark:border-stone-800">
+              <h3 class="text-sm font-semibold text-stone-900 dark:text-stone-100">
                 {v.title}
               </h3>
-              <p class="mt-1.5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+              <p class="mt-1.5 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
                 {v.text}
               </p>
             </div>
           ))
         }
       </div>
-      <p class="mt-4 max-w-3xl text-xs text-zinc-500 dark:text-zinc-500">
+      <p class="mt-4 max-w-3xl text-xs text-stone-500 dark:text-stone-500">
         Qualifications, employment history, publications and awards shown on
-        this site reflect verified CV details. Any field marked with square
-        brackets is a placeholder awaiting information not yet confirmed —
-        nothing on this site is fabricated.
+        this site reflect verified CV details.
       </p>
     </section>
   </div>

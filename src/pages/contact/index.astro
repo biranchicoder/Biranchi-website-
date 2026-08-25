@@ -28,7 +28,7 @@ const profiles = [
       </a>
       <a
         href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}
-        class="rounded-md border border-zinc-300 px-5 py-2.5 text-sm font-semibold text-zinc-800 hover:border-accent hover:text-accent dark:border-zinc-700 dark:text-zinc-200"
+        class="rounded-md border border-stone-300 px-5 py-2.5 text-sm font-semibold text-stone-800 hover:border-accent hover:text-accent dark:border-stone-700 dark:text-stone-200"
       >
         {siteConfig.phone}
       </a>
@@ -37,13 +37,13 @@ const profiles = [
     <dl class="mt-10 space-y-4">
       {
         profiles.map((p) => (
-          <div class="flex items-baseline justify-between gap-4 border-b border-zinc-100 pb-3 dark:border-zinc-900">
-            <dt class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+          <div class="flex items-baseline justify-between gap-4 border-b border-stone-100 pb-3 dark:border-stone-900">
+            <dt class="text-sm font-semibold text-stone-900 dark:text-stone-100">
               {p.label}
             </dt>
-            <dd class="text-sm text-zinc-700 dark:text-zinc-300">
+            <dd class="text-sm text-stone-700 dark:text-stone-300">
               {isPlaceholder(p.value) ? (
-                <span class="text-zinc-400 italic dark:text-zinc-500">
+                <span class="text-stone-400 italic dark:text-stone-500">
                   {p.value}
                 </span>
               ) : (
@@ -51,7 +51,7 @@ const profiles = [
                   href={p.href ?? p.value}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-accent hover:underline dark:text-cyan-300"
+                  class="text-accent hover:underline dark:text-violet-300"
                 >
                   {p.value}
                 </a>
@@ -61,17 +61,13 @@ const profiles = [
         ))
       }
       <div class="flex items-baseline justify-between gap-4 pb-3">
-        <dt class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+        <dt class="text-sm font-semibold text-stone-900 dark:text-stone-100">
           Location
         </dt>
-        <dd class="text-sm text-zinc-700 dark:text-zinc-300">
+        <dd class="text-sm text-stone-700 dark:text-stone-300">
           {siteConfig.location}
         </dd>
       </div>
     </dl>
-
-    <p class="mt-6 text-xs text-zinc-500 dark:text-zinc-500">
-      Update these details in <code>src/config.ts</code>.
-    </p>
   </div>
 </PageLayout>

@@ -71,19 +71,21 @@ vignettes, structured worksheets for applying the framework.
 
 ## Findings
 
-> Claims about the framework's performance are reported only once verified.
-
-- [Add verified finding here]
+The framework has not yet been formally evaluated for inter-rater consistency
+across independent assessors. To date its value has been demonstrated by
+applying it case by case to the fictional Case Portfolio published on this
+site — see that section for worked examples of the framework in use.
 
 ## Outputs
 
 - The framework itself (this page and the applied examples in the Case Portfolio)
 - Staff-facing guidance based on the framework — see Technical Writing
-- [Add workshop, report or paper details when confirmed]
 
 ## Impact
 
-- [Add verified impact here — e.g. adoption, feedback, citations]
+Not yet formally measured — the framework is newly developed. The clearest
+evidence of its usefulness so far is qualitative: it gives staff a shared,
+explainable structure in place of case-by-case improvisation.
 
 ## Limitations
 
@@ -98,12 +100,13 @@ vignettes, structured worksheets for applying the framework.
 - Separating *disclosure* failures from *authorship* failures prevents the most
   common unfairness: treating honest, permitted use that was poorly acknowledged
   as if it were contract cheating.
-- [Add further lessons here]
 
 ## Related publication
 
-- [Add related publication when available]
+Not yet linked to a standalone publication — the framework draws directly on
+the two empirical studies linked above and is documented here on this page.
 
 ## Downloadable materials
 
-- [Add a printable framework worksheet to public/downloads/ and list it in the frontmatter `downloads` field]
+A printable worksheet version of the framework is planned but not yet
+published here.

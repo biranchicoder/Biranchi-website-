@@ -17,11 +17,11 @@ import { url } from "../../lib/paths";
       placeholder="Search for a topic, project or publication…"
       autocomplete="off"
       data-index-url={url("/search-index.json")}
-      class="w-full rounded-md border border-zinc-300 px-4 py-3 text-base focus-visible:border-accent dark:border-zinc-700 dark:bg-zinc-900"
+      class="w-full rounded-md border border-stone-300 px-4 py-3 text-base focus-visible:border-accent dark:border-stone-700 dark:bg-stone-900"
     />
   </div>
 
-  <p id="search-status" class="mt-4 text-sm text-zinc-500 dark:text-zinc-400" aria-live="polite">
+  <p id="search-status" class="mt-4 text-sm text-stone-500 dark:text-stone-400" aria-live="polite">
     Start typing to search.
   </p>
 
@@ -67,13 +67,13 @@ import { url } from "../../lib/paths";
     for (const record of records) {
       const li = document.createElement("li");
       li.className =
-        "rounded-lg border border-zinc-200 p-4 dark:border-zinc-800";
+        "rounded-lg border border-stone-200 p-4 dark:border-stone-800";
       li.innerHTML = `
-        <span class="text-xs font-medium text-accent dark:text-cyan-300">${record.section}</span>
-        <h2 class="mt-1 font-serif text-base font-semibold text-zinc-900 dark:text-zinc-100">
+        <span class="text-xs font-medium text-accent dark:text-violet-300">${record.section}</span>
+        <h2 class="mt-1 font-serif text-base font-semibold text-stone-900 dark:text-stone-100">
           <a href="${record.url}" class="hover:underline">${record.title}</a>
         </h2>
-        <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">${record.description}</p>
+        <p class="mt-1 text-sm text-stone-600 dark:text-stone-400">${record.description}</p>
       `;
       results.appendChild(li);
     }

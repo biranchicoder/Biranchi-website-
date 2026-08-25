@@ -28,10 +28,26 @@ const [researchCount, projectCount, caseCount, writingCount] = await Promise.all
 );
 
 const stats = [
-  { label: "Research themes & methods", value: researchCount - 1 },
-  { label: "Research projects", value: projectCount },
-  { label: "Case studies analysed", value: caseCount },
-  { label: "Writing samples", value: writingCount },
+  {
+    label: "Research themes & methods",
+    value: researchCount - 1,
+    icon: "M12 3 2 8l10 5 10-5-10-5Zm0 8-8.5-4.25M12 11l8.5-4.25M12 11v10",
+  },
+  {
+    label: "Research projects",
+    value: projectCount,
+    icon: "M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z",
+  },
+  {
+    label: "Case studies analysed",
+    value: caseCount,
+    icon: "M9 3h6l1 4H8l1-4Zm-3 4h12l1 13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L6 7Zm3 5v6m6-6v6",
+  },
+  {
+    label: "Writing samples",
+    value: writingCount,
+    icon: "M4 20h16M6 16l10-10 3 3-10 10H6v-3Z",
+  },
 ];
 
 const expertise = [
@@ -64,28 +80,36 @@ const expertise = [
 
 <BaseLayout title={siteConfig.name} description={siteConfig.description}>
   <!-- Hero -->
-  <section class="py-8 sm:py-14">
+  <section class="relative overflow-hidden py-8 sm:py-14">
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full bg-accent/[0.10] blur-3xl dark:bg-violet-400/[0.08]"
+    ></div>
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute top-20 -right-10 h-48 w-48 rounded-full bg-accent/[0.06] blur-2xl dark:bg-violet-400/[0.05]"
+    ></div>
     <p
-      class="text-sm font-medium tracking-wide text-accent uppercase dark:text-cyan-300"
+      class="relative text-sm font-medium tracking-wide text-accent uppercase dark:text-violet-300"
     >
       PhD Candidate · {siteConfig.location}
     </p>
     <h1
-      class="mt-3 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-100"
+      class="relative mt-3 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-stone-900 sm:text-5xl dark:text-stone-100"
     >
       Biranchi Poudyal
     </h1>
     <p
-      class="mt-4 max-w-3xl font-serif text-xl leading-relaxed text-zinc-700 sm:text-2xl dark:text-zinc-300"
+      class="relative mt-4 max-w-3xl font-serif text-xl leading-relaxed text-stone-700 sm:text-2xl dark:text-stone-300"
     >
       Researcher in Generative AI, Academic Integrity and Human–AI Education
     </p>
-    <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+    <p class="relative mt-6 max-w-2xl text-lg leading-relaxed text-stone-600 dark:text-stone-400">
       My work examines how generative AI changes knowledge, assessment,
       authorship, academic integrity and human agency in education — and how
       universities can respond with policy that is clear, fair and workable.
     </p>
-    <div class="mt-8 flex flex-wrap gap-3">
+    <div class="relative mt-8 flex flex-wrap gap-3">
       <a
         href={url("/research/")}
         class="rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent-dark"
@@ -94,20 +118,20 @@ const expertise = [
       </a>
       <a
         href={url("/projects/")}
-        class="rounded-md border border-zinc-300 px-5 py-2.5 text-sm font-semibold text-zinc-800 hover:border-accent hover:text-accent dark:border-zinc-700 dark:text-zinc-200"
+        class="rounded-md border border-stone-300 px-5 py-2.5 text-sm font-semibold text-stone-800 hover:border-accent hover:text-accent dark:border-stone-700 dark:text-stone-200"
       >
         Explore Projects
       </a>
       <a
         href={url(siteConfig.cvFile)}
         download
-        class="rounded-md border border-zinc-300 px-5 py-2.5 text-sm font-semibold text-zinc-800 hover:border-accent hover:text-accent dark:border-zinc-700 dark:text-zinc-200"
+        class="rounded-md border border-stone-300 px-5 py-2.5 text-sm font-semibold text-stone-800 hover:border-accent hover:text-accent dark:border-stone-700 dark:text-stone-200"
       >
         Download CV
       </a>
       <a
         href={url("/contact/")}
-        class="rounded-md border border-zinc-300 px-5 py-2.5 text-sm font-semibold text-zinc-800 hover:border-accent hover:text-accent dark:border-zinc-700 dark:text-zinc-200"
+        class="rounded-md border border-stone-300 px-5 py-2.5 text-sm font-semibold text-stone-800 hover:border-accent hover:text-accent dark:border-stone-700 dark:text-stone-200"
       >
         Contact Me
       </a>
@@ -123,10 +147,22 @@ const expertise = [
     {
       stats.map((stat) => (
         <div class="text-center">
-          <p class="font-serif text-3xl font-semibold text-accent dark:text-cyan-300">
+          <svg
+            class="mx-auto h-5 w-5 text-accent/60 dark:text-violet-300/60"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d={stat.icon} />
+          </svg>
+          <p class="mt-1.5 font-serif text-3xl font-semibold text-accent dark:text-violet-300">
             <span data-count-to={stat.value}>0</span>
           </p>
-          <p class="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
+          <p class="mt-1 text-xs text-stone-500 dark:text-stone-400">
             {stat.label}
           </p>
         </div>
@@ -140,9 +176,9 @@ const expertise = [
       <section
         aria-labelledby="live-tool-heading"
         data-reveal
-        class="border-b border-zinc-100 py-12 dark:border-zinc-900"
+        class="border-b border-stone-100 py-12 dark:border-stone-900"
       >
-        <div class="flex flex-col gap-6 rounded-lg border border-accent/30 bg-accent-soft p-6 sm:flex-row sm:items-center sm:justify-between dark:border-cyan-900 dark:bg-zinc-900">
+        <div class="flex flex-col gap-6 rounded-lg border border-accent/30 bg-accent-soft p-6 sm:flex-row sm:items-center sm:justify-between dark:border-violet-900 dark:bg-stone-900">
           <div>
             <p class="inline-flex items-center gap-1.5 rounded-full bg-accent px-2.5 py-0.5 text-xs font-semibold text-white">
               <span class="h-1.5 w-1.5 rounded-full bg-white" />
@@ -150,11 +186,11 @@ const expertise = [
             </p>
             <h2
               id="live-tool-heading"
-              class="mt-3 font-serif text-2xl font-semibold text-zinc-900 dark:text-zinc-100"
+              class="mt-3 font-serif text-2xl font-semibold text-stone-900 dark:text-stone-100"
             >
               {featuredProject.data.title}
             </h2>
-            <p class="mt-2 max-w-xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+            <p class="mt-2 max-w-xl text-sm leading-relaxed text-stone-600 dark:text-stone-400">
               {featuredProject.data.summary}
             </p>
           </div>
@@ -169,7 +205,7 @@ const expertise = [
             </a>
             <a
               href={url(`/projects/${featuredProject.id}/`)}
-              class="text-center text-sm font-semibold text-accent hover:underline dark:text-cyan-300"
+              class="text-center text-sm font-semibold text-accent hover:underline dark:text-violet-300"
             >
               Read the case study →
             </a>
@@ -180,22 +216,22 @@ const expertise = [
   }
 
   <!-- Key areas of expertise -->
-  <section aria-labelledby="expertise-heading" data-reveal class="border-t border-zinc-100 py-12 dark:border-zinc-900">
+  <section aria-labelledby="expertise-heading" data-reveal class="border-t border-stone-100 py-12 dark:border-stone-900">
     <p class="eyebrow">What I work on</p>
     <h2
       id="expertise-heading"
-      class="mt-1 font-serif text-2xl font-semibold text-zinc-900 dark:text-zinc-100"
+      class="mt-1 font-serif text-2xl font-semibold text-stone-900 dark:text-stone-100"
     >
       Areas of expertise
     </h2>
     <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {
         expertise.map((item) => (
-          <div class="rounded-lg border-t-2 border-t-accent bg-white p-5 shadow-sm ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">
-            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+          <div class="rounded-lg border-t-2 border-t-accent bg-white p-5 shadow-sm ring-1 ring-stone-200 dark:bg-stone-900 dark:ring-stone-800">
+            <h3 class="text-sm font-semibold text-stone-900 dark:text-stone-100">
               {item.title}
             </h3>
-            <p class="mt-1.5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+            <p class="mt-1.5 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
               {item.text}
             </p>
           </div>
@@ -208,23 +244,23 @@ const expertise = [
   <section
     aria-labelledby="focus-heading"
     data-reveal
-    class="border-t border-zinc-100 py-12 dark:border-zinc-900"
+    class="border-t border-stone-100 py-12 dark:border-stone-900"
   >
     <p class="eyebrow">Doctoral project</p>
     <h2
       id="focus-heading"
-      class="mt-1 font-serif text-2xl font-semibold text-zinc-900 dark:text-zinc-100"
+      class="mt-1 font-serif text-2xl font-semibold text-stone-900 dark:text-stone-100"
     >
       Current research focus
     </h2>
     <div
       class="tint-box mt-6 rounded-lg border-l-4 border-l-accent p-6"
     >
-      <p class="font-serif text-lg text-zinc-800 dark:text-zinc-200">
+      <p class="font-serif text-lg text-stone-800 dark:text-stone-200">
         “The Role of Generative AI and Agency in the Epistemological Foundations
         of Contemporary Pedagogy”
       </p>
-      <p class="mt-3 max-w-3xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+      <p class="mt-3 max-w-3xl text-sm leading-relaxed text-stone-600 dark:text-stone-400">
         My doctoral research asks how epistemic agency — a learner's capacity to
         form, justify and take responsibility for knowledge — is preserved,
         redistributed or eroded when cognitive work is shared with AI systems,
@@ -233,7 +269,7 @@ const expertise = [
       </p>
       <a
         href={url("/research/")}
-        class="mt-4 inline-block text-sm font-semibold text-accent hover:underline dark:text-cyan-300"
+        class="mt-4 inline-block text-sm font-semibold text-accent hover:underline dark:text-violet-300"
       >
         About the doctoral project →
       </a>
@@ -244,21 +280,21 @@ const expertise = [
   <section
     aria-labelledby="projects-heading"
     data-reveal
-    class="border-t border-zinc-100 py-12 dark:border-zinc-900"
+    class="border-t border-stone-100 py-12 dark:border-stone-900"
   >
     <div class="flex items-baseline justify-between gap-4">
       <div>
         <p class="eyebrow">Portfolio</p>
         <h2
           id="projects-heading"
-          class="mt-1 font-serif text-2xl font-semibold text-zinc-900 dark:text-zinc-100"
+          class="mt-1 font-serif text-2xl font-semibold text-stone-900 dark:text-stone-100"
         >
           Selected research projects
         </h2>
       </div>
       <a
         href={url("/projects/")}
-        class="shrink-0 text-sm font-semibold text-accent hover:underline dark:text-cyan-300"
+        class="shrink-0 text-sm font-semibold text-accent hover:underline dark:text-violet-300"
       >
         All projects →
       </a>
@@ -272,21 +308,21 @@ const expertise = [
   <section
     aria-labelledby="pubs-heading"
     data-reveal
-    class="border-t border-zinc-100 py-12 dark:border-zinc-900"
+    class="border-t border-stone-100 py-12 dark:border-stone-900"
   >
     <div class="flex items-baseline justify-between gap-4">
       <div>
         <p class="eyebrow">In print</p>
         <h2
           id="pubs-heading"
-          class="mt-1 font-serif text-2xl font-semibold text-zinc-900 dark:text-zinc-100"
+          class="mt-1 font-serif text-2xl font-semibold text-stone-900 dark:text-stone-100"
         >
           Selected publications
         </h2>
       </div>
       <a
         href={url("/publications/")}
-        class="shrink-0 text-sm font-semibold text-accent hover:underline dark:text-cyan-300"
+        class="shrink-0 text-sm font-semibold text-accent hover:underline dark:text-violet-300"
       >
         All publications →
       </a>
@@ -300,16 +336,16 @@ const expertise = [
   <section
     aria-labelledby="bio-heading"
     data-reveal
-    class="border-t border-zinc-100 py-12 dark:border-zinc-900"
+    class="border-t border-stone-100 py-12 dark:border-stone-900"
   >
     <p class="eyebrow">Who I am</p>
     <h2
       id="bio-heading"
-      class="mt-1 font-serif text-2xl font-semibold text-zinc-900 dark:text-zinc-100"
+      class="mt-1 font-serif text-2xl font-semibold text-stone-900 dark:text-stone-100"
     >
       Biography
     </h2>
-    <div class="mt-4 max-w-3xl space-y-4 text-zinc-600 dark:text-zinc-400">
+    <div class="mt-4 max-w-3xl space-y-4 text-stone-600 dark:text-stone-400">
       <p>
         I am a PhD candidate based in Sydney, Australia, researching generative
         AI, epistemic agency and education. My work sits at the intersection of
@@ -326,7 +362,7 @@ const expertise = [
     </div>
     <a
       href={url("/about/")}
-      class="mt-5 inline-block text-sm font-semibold text-accent hover:underline dark:text-cyan-300"
+      class="mt-5 inline-block text-sm font-semibold text-accent hover:underline dark:text-violet-300"
     >
       Full biography and research profile →
     </a>
@@ -336,12 +372,12 @@ const expertise = [
   <section
     aria-labelledby="portfolio-heading"
     data-reveal
-    class="border-t border-zinc-100 py-12 dark:border-zinc-900"
+    class="border-t border-stone-100 py-12 dark:border-stone-900"
   >
     <p class="eyebrow">Keep exploring</p>
     <h2
       id="portfolio-heading"
-      class="mt-1 font-serif text-2xl font-semibold text-zinc-900 dark:text-zinc-100"
+      class="mt-1 font-serif text-2xl font-semibold text-stone-900 dark:text-stone-100"
     >
       Explore the full portfolio
     </h2>
@@ -371,12 +407,12 @@ const expertise = [
         ].map((item) => (
           <a
             href={url(item.href)}
-            class="rounded-lg border border-zinc-200 p-5 transition-colors hover:border-accent hover:bg-accent/[0.04] dark:border-zinc-800 dark:hover:bg-cyan-400/[0.06]"
+            class="rounded-lg border border-stone-200 p-5 transition-colors hover:border-accent hover:bg-accent/[0.04] dark:border-stone-800 dark:hover:bg-violet-400/[0.06]"
           >
-            <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+            <h3 class="text-sm font-semibold text-stone-900 dark:text-stone-100">
               {item.title}
             </h3>
-            <p class="mt-1.5 text-sm text-zinc-600 dark:text-zinc-400">
+            <p class="mt-1.5 text-sm text-stone-600 dark:text-stone-400">
               {item.text}
             </p>
           </a>

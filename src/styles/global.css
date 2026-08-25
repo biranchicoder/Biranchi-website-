@@ -6,12 +6,12 @@
 
 @theme {
   /*
-   * Accent colour — a deep petrol blue. To change the accent, edit these
-   * three values only; every component references them.
+   * Accent colour — a rich, saturated indigo. To change the accent, edit
+   * these three values only; every component references them.
    */
-  --color-accent: #155e75;
-  --color-accent-dark: #164e63;
-  --color-accent-soft: #ecfeff;
+  --color-accent: #4338ca;
+  --color-accent-dark: #3730a3;
+  --color-accent-soft: #eef2ff;
 
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
@@ -30,7 +30,7 @@ html {
 }
 
 body {
-  @apply bg-white text-zinc-800 antialiased dark:bg-zinc-950 dark:text-zinc-200;
+  @apply bg-stone-50 text-stone-800 antialiased dark:bg-stone-950 dark:text-stone-200;
 }
 
 /* Visible focus ring for keyboard users, consistent everywhere. */
@@ -39,7 +39,7 @@ body {
   outline-offset: 2px;
 }
 .dark :focus-visible {
-  outline-color: #67e8f9;
+  outline-color: #c4b5fd;
 }
 
 /* Skip link — visually hidden until focused. */
@@ -87,20 +87,20 @@ html.js-reveal-ready [data-reveal]:not(.is-visible) {
 
 /* Small accent-coloured uppercase label used above page/section headings. */
 .eyebrow {
-  @apply text-xs font-semibold tracking-wide text-accent uppercase dark:text-cyan-300;
+  @apply text-xs font-semibold tracking-wide text-accent uppercase dark:text-violet-300;
 }
 
 /* Accent-tinted content box (opacity-based so it adapts to light/dark). */
 .tint-box {
-  @apply border border-accent/15 bg-accent/[0.05] dark:border-cyan-900/60 dark:bg-cyan-400/[0.06];
+  @apply border border-accent/15 bg-accent/[0.05] dark:border-violet-900/60 dark:bg-violet-400/[0.06];
 }
 
 /* Filter toggle buttons (Projects / Cases / Publications / Writing). */
 .filter-btn {
-  @apply rounded-full border border-zinc-200 px-3 py-1.5 text-sm text-zinc-600 transition-colors hover:border-accent hover:text-accent dark:border-zinc-700 dark:text-zinc-400;
+  @apply rounded-full border border-stone-200 px-3 py-1.5 text-sm text-stone-600 transition-colors hover:border-accent hover:text-accent dark:border-stone-700 dark:text-stone-400;
 }
 .filter-btn[aria-pressed="true"] {
-  @apply border-accent bg-accent text-white dark:border-cyan-300 dark:bg-cyan-300 dark:text-zinc-900;
+  @apply border-accent bg-accent text-white dark:border-violet-300 dark:bg-violet-300 dark:text-stone-900;
 }
 
 /* Print styles: hide chrome, show content cleanly. */

@@ -48,6 +48,11 @@ technical detection does not exist.
 
 ## Recommendation
 
-[Add institution-specific recommendations here. This section intentionally
-left as a placeholder — recommendations should follow from the commissioning
-context.]
+For a leadership team acting on this brief, the priority order is: publish a
+single task-level permission statement template that units can adopt without
+drafting their own from scratch; pair it with a disclosure mechanism piloted
+with student and staff feedback before mandating it sector-wide; and shift
+detection-focused investment into assessment redesign, which reduces the
+enforcement burden a policy alone cannot carry. Sequencing matters more than
+completeness — a narrow, working rule that closes the most common ambiguity
+first is more useful than a comprehensive policy that arrives a year late.

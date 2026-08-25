@@ -1,4 +1,4 @@
----
+﻿---
 /**
  * Interactive walkthrough of the Academic Integrity Decision Framework.
  * Client-side only — nothing is transmitted or stored. Mirrors the reasoning
@@ -62,15 +62,15 @@ const questions = [
 <section
   aria-labelledby="try-framework-heading"
   data-reveal
-  class="no-print not-prose mt-16 rounded-lg border border-accent/30 bg-accent-soft p-6 dark:border-cyan-900 dark:bg-zinc-900"
+  class="no-print not-prose mt-16 rounded-lg border border-accent/30 bg-accent-soft p-6 dark:border-violet-900 dark:bg-stone-900"
 >
   <h2
     id="try-framework-heading"
-    class="font-serif text-xl font-semibold text-zinc-900 dark:text-zinc-100"
+    class="font-serif text-xl font-semibold text-stone-900 dark:text-stone-100"
   >
     Try the framework
   </h2>
-  <p class="mt-2 max-w-2xl text-sm text-zinc-600 dark:text-zinc-400">
+  <p class="mt-2 max-w-2xl text-sm text-stone-600 dark:text-stone-400">
     Answer the six questions below to see how the framework structures a
     decision. This runs entirely in your browser — nothing is submitted or
     stored — and is illustrative, not a formal integrity ruling.
@@ -79,8 +79,8 @@ const questions = [
   <form id="framework-quiz" class="mt-6 space-y-5">
     {
       questions.map((q) => (
-        <fieldset class="border-t border-zinc-200 pt-4 first:border-t-0 first:pt-0 dark:border-zinc-800">
-          <legend class="text-sm font-medium text-zinc-800 dark:text-zinc-200">
+        <fieldset class="border-t border-stone-200 pt-4 first:border-t-0 first:pt-0 dark:border-stone-800">
+          <legend class="text-sm font-medium text-stone-800 dark:text-stone-200">
             {q.text}
           </legend>
           <div class="mt-2 flex flex-wrap gap-2">
@@ -93,7 +93,7 @@ const questions = [
                   required
                   class="peer sr-only"
                 />
-                <span class="inline-block rounded-full border border-zinc-300 px-3 py-1.5 text-sm text-zinc-700 peer-checked:border-accent peer-checked:bg-accent peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-accent dark:border-zinc-700 dark:text-zinc-300">
+                <span class="inline-block rounded-full border border-stone-300 px-3 py-1.5 text-sm text-stone-700 peer-checked:border-accent peer-checked:bg-accent peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-accent dark:border-stone-700 dark:text-stone-300">
                   {opt.label}
                 </span>
               </label>

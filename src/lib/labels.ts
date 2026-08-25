@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Human-readable labels and badge styles for content taxonomy values.
  * Badge classes are deliberately muted — colour carries meaning sparingly.
  */
@@ -41,7 +41,7 @@ export const decisionBadgeClasses: Record<string, string> = {
   "disclosure-problem":
     "bg-amber-50 text-amber-800 border-amber-200 dark:bg-amber-950 dark:text-amber-300 dark:border-amber-900",
   unclear:
-    "bg-zinc-100 text-zinc-700 border-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:border-zinc-700",
+    "bg-stone-100 text-stone-700 border-stone-200 dark:bg-stone-800 dark:text-stone-300 dark:border-stone-700",
 };
 
 export const permissionLabels: Record<string, string> = {

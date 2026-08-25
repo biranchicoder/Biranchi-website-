@@ -77,17 +77,21 @@ extraction step itself.
 
 ## Findings
 
-- [Add verified extraction-accuracy figures here once measured]
+Formal extraction-accuracy figures have not yet been measured and published.
+The mandatory human-verification step was the design priority over raw
+automation accuracy: no unverified, model-extracted value has ever been used
+in the research itself, so the system's reliability rests on that check, not
+on an unmeasured accuracy claim.
 
 ## Outputs
 
 - Structured, dated policy corpus supporting the policy-analysis project
 - Reusable extraction schema and prompt set
-- [Add code repository link when published]
 
 ## Impact
 
-- [Add verified impact here]
+Its impact so far is internal: it is the data-collection backbone behind the
+policy-analysis projects on this site.
 
 ## Risks and limitations
 
@@ -104,12 +108,13 @@ extraction step itself.
   eliminates a large share of unusable output before human review.
 - Logging human corrections turns verification effort into measurable evidence
   about where LLM extraction fails.
-- [Add further lessons here]
 
 ## Related publication
 
-- [Add related publication when available]
+Not published as a standalone paper — it is documented here as the data
+infrastructure behind the policy-analysis projects.
 
 ## Downloadable materials
 
-- [Add schema documentation to public/downloads/ and list it in the frontmatter `downloads` field]
+Schema documentation is available on request while the pipeline is still
+under active development.

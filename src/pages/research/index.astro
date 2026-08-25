@@ -27,12 +27,12 @@ const { Content: DoctoralContent } = doctoral
     {
       doctoral && (
         <section aria-labelledby="doctoral-heading" data-reveal>
-          <p class="text-sm font-medium tracking-wide text-accent uppercase dark:text-cyan-300">
+          <p class="text-sm font-medium tracking-wide text-accent uppercase dark:text-violet-300">
             Doctoral research
           </p>
           <h2
             id="doctoral-heading"
-            class="mt-2 font-serif text-2xl font-semibold text-zinc-900 dark:text-zinc-100"
+            class="mt-2 font-serif text-2xl font-semibold text-stone-900 dark:text-stone-100"
           >
             {doctoral.data.title}
           </h2>
@@ -46,22 +46,22 @@ const { Content: DoctoralContent } = doctoral
     <section aria-labelledby="themes-heading" data-reveal>
       <h2
         id="themes-heading"
-        class="font-serif text-2xl font-semibold text-zinc-900 dark:text-zinc-100"
+        class="font-serif text-2xl font-semibold text-stone-900 dark:text-stone-100"
       >
         Research themes
       </h2>
-      <p class="mt-2 max-w-2xl text-sm text-zinc-600 dark:text-zinc-400">
+      <p class="mt-2 max-w-2xl text-sm text-stone-600 dark:text-stone-400">
         Seven connected themes structure my doctoral work and downstream
         projects.
       </p>
       <div class="mt-6 grid gap-4 sm:grid-cols-2">
         {
           themes.map((theme) => (
-            <div class="rounded-lg border border-zinc-200 p-5 dark:border-zinc-800">
-              <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+            <div class="rounded-lg border border-stone-200 p-5 dark:border-stone-800">
+              <h3 class="text-sm font-semibold text-stone-900 dark:text-stone-100">
                 {theme.data.title}
               </h3>
-              <p class="mt-1.5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+              <p class="mt-1.5 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
                 {theme.data.summary}
               </p>
             </div>
@@ -73,22 +73,22 @@ const { Content: DoctoralContent } = doctoral
     <section aria-labelledby="methods-heading" data-reveal>
       <h2
         id="methods-heading"
-        class="font-serif text-2xl font-semibold text-zinc-900 dark:text-zinc-100"
+        class="font-serif text-2xl font-semibold text-stone-900 dark:text-stone-100"
       >
         Research methods
       </h2>
-      <p class="mt-2 max-w-2xl text-sm text-zinc-600 dark:text-zinc-400">
+      <p class="mt-2 max-w-2xl text-sm text-stone-600 dark:text-stone-400">
         The methodological toolkit I use across projects, matched to the kind
         of question being asked.
       </p>
       <div class="mt-6 grid gap-4 sm:grid-cols-2">
         {
           methods.map((method) => (
-            <div class="rounded-lg border border-zinc-200 p-5 dark:border-zinc-800">
-              <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+            <div class="rounded-lg border border-stone-200 p-5 dark:border-stone-800">
+              <h3 class="text-sm font-semibold text-stone-900 dark:text-stone-100">
                 {method.data.title}
               </h3>
-              <p class="mt-1.5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+              <p class="mt-1.5 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
                 {method.data.summary}
               </p>
             </div>

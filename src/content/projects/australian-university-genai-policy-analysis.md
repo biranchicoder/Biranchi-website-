@@ -1,113 +1,121 @@
 ---
-title: "Australian University Generative-AI Policy Analysis"
-summary: "A systematic comparison of how Australian universities regulate student use of generative AI in assessment, coded against a structured analytic framework."
+title: "Do University AI Policies Actually Decide Cases?"
+summary: "A vignette-based test of whether the published policy environment at 20 Australian universities actually resolves common AI-assisted student behaviours, or leaves them ambiguous."
 category: policy-analysis
-tools: ["Document analysis", "Qualitative coding", "Comparative policy analysis", "Spreadsheet coding matrix"]
-status: in-progress
+tools: ["Vignette methodology", "Structured policy classification", "Dual-coder reliability testing"]
+status: completed
 order: 1
-updated: 2026-07-28
+updated: 2026-08-26
 related: ["from-policy-to-decision", "ai-policy-extraction-system"]
-relatedPublication: "placeholder-under-review"
 downloads: []
 ---
 
 ## Overview
 
-A systematic, document-based comparison of how Australian universities regulate
-student use of generative AI. The project collects publicly available academic
-integrity policies, assessment procedures and student-facing guidance, and codes
-them against a common framework so that institutional approaches can be compared
-on like-for-like terms.
+Reading a university's AI policy tells you what it says. It does not tell you
+whether, in practice, a student, marker or integrity officer facing a specific
+situation can actually work out what is allowed. This project tests that
+directly: a fixed bank of realistic AI-use scenarios was applied to the full
+public policy environment of 20 Australian universities, and each outcome was
+classified according to whether the published documentation actually resolved
+the case.
 
 ## Problem
 
-Australian universities have produced generative-AI rules at speed, but the
-resulting policies differ in scope, terminology, permissions and consequences.
-Students studying at different institutions — or even in different units at the
-same institution — face materially different rules for the same behaviour.
-Without systematic comparison, neither the sector nor researchers can say how
-consistent, complete or enforceable these policies actually are.
+Australian universities have produced generative-AI rules at speed, but those
+rules are frequently spread across several documents — a university-wide
+policy, unit-level guidance, assessment instructions — that a student has to
+reconcile themselves. Each document can look reasonable on its own while the
+combination still leaves a specific, everyday question unanswered. Without
+testing policies against realistic cases, neither students nor researchers can
+tell how much of this ambiguity actually exists.
 
 ## My role
 
-Sole researcher: designed the study, built the sampling frame and coding
-framework, collected and coded all documents, and drafted the analysis.
-[Add supervisor/collaborator acknowledgements if applicable.]
+Sole researcher: designed the scenario bank and classification scheme,
+assembled and coded the policy environment for all 20 universities, and led
+the reliability checking and analysis, under the supervision of Dr Jon Mason
+at Charles Darwin University.
 
-## Research questions
+## Research question
 
-1. How do Australian universities define acceptable and unacceptable student
-   use of generative AI?
-2. What disclosure and acknowledgement requirements do policies impose?
-3. How do policies allocate responsibility between institution, teaching staff
-   and students?
-4. Where do policies leave decision-relevant questions unanswered?
+Does the combination of documents a university publishes reliably tell
+someone whether a specific, realistic AI-assisted behaviour is acceptable,
+prohibited or conditional — or does it leave the question open?
 
 ## Data sources
 
-- Publicly available academic integrity policies and procedures
-- Assessment policies and unit-level guidance where public
-- Student-facing generative-AI guidance pages
-- Corpus spans five Australian universities; per-document counts will be
-  published alongside the coding matrix once the analysis phase closes.
+The full public AI-governance environment for 20 Australian universities:
+academic integrity policies and procedures, assessment policies, and
+unit-level or student-facing generative-AI guidance, wherever each institution
+chose to publish it.
 
 ## Method
 
-Systematic policy and document analysis. Documents were identified through
-institutional policy libraries, captured with date stamps, and coded in a
-structured matrix. Coding decisions were documented with decision rules and
-revisited after a second pass. See the coding framework below.
-
-## Coding framework
-
-Each policy was coded for:
-
-- **Scope** — which students, tasks and tools the policy covers
-- **Permission model** — banned / permitted-with-conditions / task-dependent / delegated to unit level
-- **Disclosure requirements** — whether, how and where AI use must be acknowledged
-- **Authorship provisions** — what the policy says about the student's own contribution
-- **Verification expectations** — whether students must check AI output
-- **Consequences** — how breaches are classified and handled
-- **Clarity markers** — defined terms, examples given, contact points
+I built a fixed bank of realistic test scenarios spanning common forms of
+AI-assisted student work — from fully transparent, verified use through to
+undisclosed, substantially AI-produced submissions — and applied each scenario
+to each university's published policy environment using a structured
+classification protocol. A meaningful portion of the classifications were
+independently re-coded by a second coder, and disagreements were resolved by
+protocol rather than by a single analyst's judgement, so that the reliability
+of the classification scheme itself could be checked and reported alongside
+the substantive findings.
 
 ## Findings
 
-> Findings are reported only once verified against the coded data set.
-
-- [Add verified finding here]
-- [Add verified finding here]
-- [Add verified finding here]
+The classification is complete and reported in a manuscript currently under
+peer review; I am holding back exact figures here until the published version
+is out, rather than previewing results that are still in the review process.
+In general terms: how clearly a behaviour was resolved varied enormously both
+by university and by the type of behaviour — transparent, verified uses were
+consistently the most clearly resolved, while more ambiguous or
+partially-disclosed uses were frequently left undetermined by the published
+rules. Independent double-coding showed strong agreement on whether a case was
+resolved at all, which gives confidence in the classification scheme itself.
+Full figures and the university-by-university breakdown will be added here
+once the manuscript is published.
 
 ## Outputs
 
-- Coded policy comparison matrix — [in preparation]
-- Working paper — see the related publication entry on the Publications page
-- [Add conference presentation or report details when confirmed]
+- A manuscript reporting the full classification scheme and results —
+  currently under peer review. A link will be added once it is published;
+  the current draft is available on request.
+- The classification protocol also underlies the case-outcome logic used in
+  the Case Portfolio published elsewhere on this site.
 
 ## Impact
 
-- [Add verified impact here — e.g. citations, institutional use, media mention]
+No externally verified impact to report yet, as the manuscript has not
+completed peer review. The classification scheme is already informing the
+design of the Academic Integrity Decision Framework published on this site.
 
 ## Limitations
 
-- Analyses public documents only; internal guidance and actual enforcement
-  practice are not observed.
-- Policies change quickly; the corpus is a dated snapshot, not a live record.
-- Coding involves interpretive judgement; decision rules are documented but a
-  single-coder design limits reliability claims.
+- The analysis covers publicly available documents only; it does not observe
+  actual enforcement practice or internal-only guidance.
+- Policies change quickly; the corpus is a dated snapshot rather than a live
+  record.
+- Classification involves interpretive judgement; the dual-coding step was
+  used to measure — not eliminate — that risk, and decision rules are
+  documented so the study can be replicated.
 
 ## Lessons learned
 
-- Terminology varies so widely between institutions that a shared coding
-  vocabulary must be built before any comparison is meaningful.
-- Date-stamping captured documents is essential — several policies changed
-  during the study window.
-- [Add further lessons as the project concludes]
+- Institutions vary so widely in how they use terminology that a shared
+  classification vocabulary had to be built and tested before any cross-
+  institution comparison was meaningful.
+- Measuring *whether a case was resolved at all* turned out to be at least as
+  informative as measuring what the resolution was — an unresolved case is a
+  governance gap regardless of which way a policy eventually leans.
 
 ## Related publication
 
-See **[Placeholder] Manuscript under review** on the Publications page.
+Manuscript under peer review. I will link the published version here once it
+is available — in the meantime, get in touch if you would like to see the
+current draft.
 
 ## Downloadable materials
 
-- [Add coding framework PDF to public/downloads/ and list it in the frontmatter `downloads` field]
+Not yet published while the manuscript is under review. The full coding
+matrix will be made available here after publication.

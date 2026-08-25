@@ -1,0 +1,167 @@
+﻿---
+/**
+ * Interactive, numbered method/process diagram. Pure HTML <details> for
+ * expand/collapse (works with JS disabled), styled as a connected sequence.
+ * Used on completed-research project pages to make the method explorable
+ * without exposing under-review findings data.
+ */
+interface Step {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  heading?: string;
+  intro?: string;
+  steps: Step[];
+}
+
+const { heading = "How the method works", intro, steps } = Astro.props;
+---
+
+<section
+  aria-labelledby="method-diagram-heading"
+  data-reveal
+  class="not-prose mt-10 rounded-lg border border-stone-200 bg-white p-6 dark:border-stone-800 dark:bg-stone-900"
+>
+  <h2
+    id="method-diagram-heading"
+    class="font-serif text-xl font-semibold text-stone-900 dark:text-stone-100"
+  >
+    {heading}
+  </h2>
+  {
+    intro && (
+      <p class="mt-2 max-w-2xl text-sm leading-relaxed text-stone-600 dark:text-stone-400">
+        {intro}
+      </p>
+    )
+  }
+
+  <ol class="method-diagram mt-6">
+    {
+      steps.map((step, i) => (
+        <li class="method-step">
+          <details open={i === 0}>
+            <summary>
+              <span class="step-num" aria-hidden="true">{i + 1}</span>
+              <span class="step-title">{step.title}</span>
+              <svg class="step-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </summary>
+            <p class="step-desc">{step.description}</p>
+          </details>
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<style>
+  .method-diagram {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+  }
+
+  .method-step {
+    position: relative;
+    padding-left: 2.75rem;
+  }
+
+  /* Connecting line between step numbers. */
+  .method-step:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 1.1rem;
+    top: 2.4rem;
+    bottom: -0.25rem;
+    width: 1px;
+    background: var(--color-stone-200, #e4e4e7);
+  }
+  :global(.dark) .method-step:not(:last-child)::before {
+    background: var(--color-stone-800, #27272a);
+  }
+
+  .method-step details {
+    padding-bottom: 1.25rem;
+  }
+  .method-step:last-child details {
+    padding-bottom: 0;
+  }
+
+  .method-step summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    padding: 0.25rem 0;
+  }
+  .method-step summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .step-num {
+    position: absolute;
+    left: -2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: var(--color-accent-soft);
+    flex-shrink: 0;
+  }
+  :global(.dark) .step-num {
+    background: color-mix(in oklab, var(--color-accent) 18%, transparent);
+    color: #c4b5fd;
+    border-color: #164e63;
+  }
+
+  .step-title {
+    flex: 1;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--color-stone-900, #18181b);
+  }
+  :global(.dark) .step-title {
+    color: var(--color-stone-100, #f4f4f5);
+  }
+
+  .step-chevron {
+    color: var(--color-stone-400, #a1a1aa);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+  details[open] .step-chevron {
+    transform: rotate(180deg);
+  }
+
+  .step-desc {
+    margin: 0.5rem 0 0;
+    padding-left: 0;
+    max-width: 42rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-stone-600, #52525b);
+  }
+  :global(.dark) .step-desc {
+    color: var(--color-stone-400, #a1a1aa);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .step-chevron {
+      transition: none;
+    }
+  }
+</style>

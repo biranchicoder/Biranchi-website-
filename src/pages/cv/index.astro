@@ -143,10 +143,6 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "Professional development",
-    items: ["[Add courses, workshops or training completed]"],
-  },
-  {
     title: "Awards",
     entries: [
       {
@@ -159,31 +155,6 @@ const sections: Section[] = [
         subheading: "Nepal Army KTFT Journal, Volume II",
       },
     ],
-  },
-  {
-    title: "Memberships",
-    items: ["[Add professional or academic society memberships, if any]"],
-  },
-  {
-    title: "Referees",
-    entries: [
-      {
-        heading: "Dr Jon Mason, PhD",
-        subheading:
-          "Associate Professor in Education (e-Learning), Charles Darwin University — PhD Supervisor",
-      },
-      {
-        heading: "Dr Khadga KC, PhD",
-        subheading:
-          "Professor, Department of International Relations and Diplomacy, Tribhuvan University",
-      },
-      {
-        heading: "Bhuvan Dharel",
-        subheading: "Founder, Pioneer Research Center Nepal",
-        href: "https://prcnepal.org/",
-      },
-    ],
-    items: ["Full contact details available on request."],
   },
 ];
 ---
@@ -211,7 +182,7 @@ const sections: Section[] = [
         <section aria-labelledby={section.title.replace(/\s+/g, "-").toLowerCase()}>
           <h2
             id={section.title.replace(/\s+/g, "-").toLowerCase()}
-            class="font-serif text-xl font-semibold text-zinc-900 dark:text-zinc-100"
+            class="font-serif text-xl font-semibold text-stone-900 dark:text-stone-100"
           >
             {section.title}
           </h2>
@@ -220,13 +191,13 @@ const sections: Section[] = [
             <div class="mt-3 space-y-4">
               {section.entries.map((entry) => (
                 <div>
-                  <p class="text-sm font-semibold text-zinc-800 dark:text-zinc-200">
+                  <p class="text-sm font-semibold text-stone-800 dark:text-stone-200">
                     {entry.href ? (
                       <a
                         href={entry.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="hover:text-accent hover:underline dark:hover:text-cyan-300"
+                        class="hover:text-accent hover:underline dark:hover:text-violet-300"
                       >
                         {entry.heading}
                       </a>
@@ -235,10 +206,10 @@ const sections: Section[] = [
                     )}
                   </p>
                   {entry.subheading && (
-                    <p class="text-xs text-zinc-500 dark:text-zinc-500">{entry.subheading}</p>
+                    <p class="text-xs text-stone-500 dark:text-stone-500">{entry.subheading}</p>
                   )}
                   {entry.detail && (
-                    <p class="mt-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                    <p class="mt-1 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
                       {entry.detail}
                     </p>
                   )}
@@ -250,7 +221,7 @@ const sections: Section[] = [
           {section.items && (
             <ul class="mt-3 space-y-1.5">
               {section.items.map((item) => (
-                <li class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{item}</li>
+                <li class="text-sm leading-relaxed text-stone-600 dark:text-stone-400">{item}</li>
               ))}
             </ul>
           )}
@@ -258,7 +229,7 @@ const sections: Section[] = [
           {section.link && (
             <a
               href={url(section.link.href)}
-              class="mt-2 inline-block text-sm font-semibold text-accent hover:underline dark:text-cyan-300"
+              class="mt-2 inline-block text-sm font-semibold text-accent hover:underline dark:text-violet-300"
             >
               {section.link.label}
             </a>

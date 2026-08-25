@@ -67,16 +67,17 @@ centre of my academic-integrity research.
 
 ## Findings
 
-- [Add verified usage observations here once formally evaluated]
+Not yet formally evaluated. Early informal use suggests it succeeds at
+prompting planning and self-questioning rather than producing submittable
+text, but I have not measured this against a control condition.
 
 ## Outputs
 
 - The deployed application: [assignment-thinking-assistant.vercel.app](https://assignment-thinking-assistant.vercel.app/)
-- [Add source repository link when published]
 
 ## Impact
 
-- [Add verified impact here — e.g. user feedback, adoption]
+Not yet formally measured — the tool is newly deployed.
 
 ## Limitations
 
@@ -90,11 +91,11 @@ centre of my academic-integrity research.
 - The hardest design problem was not the AI prompting — it was resisting the
   temptation to make the tool more "helpful" in ways that quietly turned it
   back into an answer-generator.
-- [Add further lessons as the project develops]
 
 ## Related publication
 
-- [Add related publication when available]
+Not yet linked to a publication; it is a standalone applied demonstration of
+the research principles described above.
 
 ## Downloadable materials
 

@@ -3,6 +3,7 @@ import { getCollection, render, type CollectionEntry } from "astro:content";
 import PageLayout from "../../../layouts/PageLayout.astro";
 import ProjectCard from "../../../components/ProjectCard.astro";
 import DecisionFrameworkTool from "../../../components/DecisionFrameworkTool.astro";
+import MethodDiagram from "../../../components/MethodDiagram.astro";
 import {
   formatDate,
   projectCategoryLabels,
@@ -47,12 +48,12 @@ if (d.relatedPublication) {
 >
   <div class="mb-8 flex flex-wrap items-center gap-2 text-xs">
     <span
-      class="rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-0.5 font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+      class="rounded-full border border-stone-200 bg-stone-50 px-2.5 py-0.5 font-medium text-stone-700 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-300"
     >
       {projectCategoryLabels[d.category]}
     </span>
-    <span class="text-zinc-500 dark:text-zinc-400">{projectStatusLabels[d.status]}</span>
-    <span class="text-zinc-400 dark:text-zinc-600">· Last updated {formatDate(d.updated)}</span>
+    <span class="text-stone-500 dark:text-stone-400">{projectStatusLabels[d.status]}</span>
+    <span class="text-stone-400 dark:text-stone-600">· Last updated {formatDate(d.updated)}</span>
     {
       d.liveUrl && (
         <a
@@ -72,16 +73,16 @@ if (d.relatedPublication) {
       <Content />
     </div>
 
-    <aside class="no-print space-y-6 lg:border-l lg:border-zinc-100 lg:pl-6 dark:lg:border-zinc-900">
+    <aside class="no-print space-y-6 lg:border-l lg:border-stone-100 lg:pl-6 dark:lg:border-stone-900">
       {
         d.tools.length > 0 && (
           <div>
-            <h2 class="text-xs font-semibold tracking-wide text-zinc-500 uppercase dark:text-zinc-400">
+            <h2 class="text-xs font-semibold tracking-wide text-stone-500 uppercase dark:text-stone-400">
               Tools & methods
             </h2>
             <ul class="mt-2 space-y-1">
               {d.tools.map((tool) => (
-                <li class="text-sm text-zinc-700 dark:text-zinc-300">{tool}</li>
+                <li class="text-sm text-stone-700 dark:text-stone-300">{tool}</li>
               ))}
             </ul>
           </div>
@@ -91,7 +92,7 @@ if (d.relatedPublication) {
       {
         d.downloads.length > 0 && (
           <div>
-            <h2 class="text-xs font-semibold tracking-wide text-zinc-500 uppercase dark:text-zinc-400">
+            <h2 class="text-xs font-semibold tracking-wide text-stone-500 uppercase dark:text-stone-400">
               Downloadable materials
             </h2>
             <ul class="mt-2 space-y-1">
@@ -99,7 +100,7 @@ if (d.relatedPublication) {
                 <li>
                   <a
                     href={file.href}
-                    class="text-sm text-accent hover:underline dark:text-cyan-300"
+                    class="text-sm text-accent hover:underline dark:text-violet-300"
                   >
                     {file.label}
                   </a>
@@ -113,12 +114,12 @@ if (d.relatedPublication) {
       {
         relatedPublication && (
           <div>
-            <h2 class="text-xs font-semibold tracking-wide text-zinc-500 uppercase dark:text-zinc-400">
+            <h2 class="text-xs font-semibold tracking-wide text-stone-500 uppercase dark:text-stone-400">
               Related publication
             </h2>
             <a
               href={`/publications/#${relatedPublication.id}`}
-              class="mt-2 block text-sm text-accent hover:underline dark:text-cyan-300"
+              class="mt-2 block text-sm text-accent hover:underline dark:text-violet-300"
             >
               {relatedPublication.data.title}
             </a>
@@ -127,13 +128,13 @@ if (d.relatedPublication) {
       }
 
       <div>
-        <h2 class="text-xs font-semibold tracking-wide text-zinc-500 uppercase dark:text-zinc-400">
+        <h2 class="text-xs font-semibold tracking-wide text-stone-500 uppercase dark:text-stone-400">
           Page actions
         </h2>
         <button
           type="button"
           onclick="window.print()"
-          class="mt-2 rounded border border-zinc-200 px-3 py-1.5 text-sm text-zinc-700 hover:border-accent hover:text-accent dark:border-zinc-700 dark:text-zinc-300"
+          class="mt-2 rounded border border-stone-200 px-3 py-1.5 text-sm text-stone-700 hover:border-accent hover:text-accent dark:border-stone-700 dark:text-stone-300"
         >
           Print this case study
         </button>
@@ -144,9 +145,81 @@ if (d.relatedPublication) {
   {project.id === "academic-integrity-decision-framework" && <DecisionFrameworkTool />}
 
   {
+    project.id === "from-policy-to-decision" && (
+      <MethodDiagram
+        heading="How the stress test works"
+        intro="Five steps, applied consistently across every university and every scenario in the study."
+        steps={[
+          {
+            title: "Build a frozen documentary corpus",
+            description:
+              "Collect every publicly available governance-relevant document for each university — policies, principles, procedures and guidance, not just the primary integrity policy — and fix it at a point in time so results are reproducible.",
+          },
+          {
+            title: "Design a scenario ladder",
+            description:
+              "Construct a quality-screened set of AI-use scenarios spanning a deliberate range, from routine bounded assistance through to more autonomous, delegated forms of AI action.",
+          },
+          {
+            title: "Apply the six-dimension response chain",
+            description:
+              "For each university–scenario pair, test whether authority, procedure, decision criteria, safeguards, review and escalation remain connected — a governance pathway needs all of them, not just one.",
+          },
+          {
+            title: "Score with a non-compensatory rule",
+            description:
+              "A strong showing on one dimension cannot cover for a missing one. Each pairing is scored as resolved, resolved through structured discretion, or indeterminate.",
+          },
+          {
+            title: "Diagnose case-level breakpoints",
+            description:
+              "Where a pathway fails, identify exactly which dimension broke down — a named-but-underspecified role, a missing safeguard, no review route — so the diagnosis is actionable, not just a pass/fail score.",
+          },
+        ]}
+      />
+    )
+  }
+
+  {
+    project.id === "australian-university-genai-policy-analysis" && (
+      <MethodDiagram
+        heading="How the classification works"
+        intro="A fixed protocol applied consistently across all 20 universities in the study."
+        steps={[
+          {
+            title: "Build the scenario bank",
+            description:
+              "Construct a fixed set of realistic AI-assisted student behaviours, spanning fully transparent, verified use through to undisclosed, substantially AI-produced submissions.",
+          },
+          {
+            title: "Assemble each university's policy environment",
+            description:
+              "Collect the full set of public documents that could plausibly govern each scenario — integrity policy, assessment policy and unit-level or student-facing guidance — rather than relying on a single named policy.",
+          },
+          {
+            title: "Classify each scenario against each policy environment",
+            description:
+              "Apply a structured classification protocol to determine whether the combination of documents actually resolves the case, and if so, in which direction.",
+          },
+          {
+            title: "Independently re-code a sample",
+            description:
+              "A second coder re-classifies a meaningful portion of cases without seeing the first coder's decisions, so the reliability of the scheme itself can be measured and reported.",
+          },
+          {
+            title: "Resolve disagreements by protocol",
+            description:
+              "Where coders disagree, the decision is resolved by a documented rule rather than individual judgement, and the disagreement is logged rather than smoothed over.",
+          },
+        ]}
+      />
+    )
+  }
+
+  {
     relatedProjects.length > 0 && (
-      <section aria-labelledby="related-heading" class="no-print mt-16 border-t border-zinc-100 pt-10 dark:border-zinc-900">
-        <h2 id="related-heading" class="font-serif text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+      <section aria-labelledby="related-heading" class="no-print mt-16 border-t border-stone-100 pt-10 dark:border-stone-900">
+        <h2 id="related-heading" class="font-serif text-xl font-semibold text-stone-900 dark:text-stone-100">
           Related projects
         </h2>
         <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

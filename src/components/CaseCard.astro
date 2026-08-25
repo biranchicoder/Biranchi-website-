@@ -1,4 +1,4 @@
----
+﻿---
 import type { CollectionEntry } from "astro:content";
 import { url } from "../lib/paths";
 import {
@@ -17,13 +17,13 @@ const d = caseEntry.data;
 ---
 
 <article
-  class="case-card flex h-full flex-col rounded-lg border border-zinc-200 bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
+  class="case-card flex h-full flex-col rounded-lg border border-stone-200 bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md dark:border-stone-800 dark:bg-stone-900"
   data-decision={d.decision}
   data-permission={d.permission}
   data-disclosure={d.disclosure}
 >
   <div class="flex items-center justify-between gap-2">
-    <span class="text-xs font-medium text-zinc-500 dark:text-zinc-400">
+    <span class="text-xs font-medium text-stone-500 dark:text-stone-400">
       Case {String(d.caseNumber).padStart(2, "0")} · Fictional
     </span>
     <span
@@ -35,27 +35,27 @@ const d = caseEntry.data;
       {decisionLabels[d.decision]}
     </span>
   </div>
-  <h3 class="mt-3 font-serif text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+  <h3 class="mt-3 font-serif text-lg font-semibold text-stone-900 dark:text-stone-100">
     <a
       href={url(`/cases/${caseEntry.id}/`)}
-      class="hover:text-accent dark:hover:text-cyan-300"
+      class="hover:text-accent dark:hover:text-violet-300"
     >
       {d.title}
     </a>
   </h3>
-  <p class="mt-2 flex-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+  <p class="mt-2 flex-1 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
     {d.behaviour}
   </p>
   <dl class="mt-4 grid grid-cols-2 gap-x-4 gap-y-1 text-xs">
     <div>
-      <dt class="text-zinc-400 dark:text-zinc-500">Permission</dt>
-      <dd class="text-zinc-700 dark:text-zinc-300">
+      <dt class="text-stone-400 dark:text-stone-500">Permission</dt>
+      <dd class="text-stone-700 dark:text-stone-300">
         {permissionLabels[d.permission]}
       </dd>
     </div>
     <div>
-      <dt class="text-zinc-400 dark:text-zinc-500">Disclosure</dt>
-      <dd class="text-zinc-700 dark:text-zinc-300">
+      <dt class="text-stone-400 dark:text-stone-500">Disclosure</dt>
+      <dd class="text-stone-700 dark:text-stone-300">
         {disclosureLabels[d.disclosure]}
       </dd>
     </div>

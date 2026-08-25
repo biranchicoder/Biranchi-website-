@@ -1,4 +1,4 @@
----
+﻿---
 import { url } from "../lib/paths";
 
 interface Crumb {
@@ -14,11 +14,11 @@ const { items } = Astro.props;
 ---
 
 <nav aria-label="Breadcrumb" class="no-print mb-6 text-sm">
-  <ol class="flex flex-wrap items-center gap-1 text-zinc-500 dark:text-zinc-400">
+  <ol class="flex flex-wrap items-center gap-1 text-stone-500 dark:text-stone-400">
     <li>
       <a
         href={url("/")}
-        class="hover:text-accent dark:hover:text-cyan-300">Home</a
+        class="hover:text-accent dark:hover:text-violet-300">Home</a
       >
     </li>
     {
@@ -28,14 +28,14 @@ const { items } = Astro.props;
           {item.href && i < items.length - 1 ? (
             <a
               href={url(item.href)}
-              class="hover:text-accent dark:hover:text-cyan-300"
+              class="hover:text-accent dark:hover:text-violet-300"
             >
               {item.label}
             </a>
           ) : (
             <span
               aria-current="page"
-              class="font-medium text-zinc-700 dark:text-zinc-300"
+              class="font-medium text-stone-700 dark:text-stone-300"
             >
               {item.label}
             </span>

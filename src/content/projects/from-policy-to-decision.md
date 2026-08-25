@@ -1,112 +1,119 @@
 ---
-title: "From Policy to Decision"
-summary: "A consistency study applying the same fictional student AI-use cases to different university policies to test whether they produce the same decisions."
+title: "Testing How University AI Governance Holds Up Under Pressure"
+summary: "A scenario-based method that tests whether a university's public AI-governance documents still produce an accountable decision as AI use moves from simple assistance toward more autonomous, delegated action."
 category: empirical-study
-tools: ["Vignette methodology", "Policy analysis", "Structured decision coding"]
-status: in-progress
+tools: ["Document analysis", "Scenario-based stress testing", "Structured coding protocol", "Independent reliability checking"]
+status: completed
 order: 2
-updated: 2026-07-28
+updated: 2026-08-26
 related: ["australian-university-genai-policy-analysis", "academic-integrity-decision-framework"]
 downloads: []
 ---
 
 ## Overview
 
-Policies are usually evaluated by reading them. This project evaluates them by
-*using* them: a fixed set of fictional student AI-use cases is applied to
-different university policies, and the resulting decisions are compared. If the
-same behaviour is misconduct at one institution, acceptable at another and
-undecidable at a third, that inconsistency becomes visible and measurable.
+Most reviews of university AI governance ask whether a policy exists and what
+it says. This project asks a harder question: when AI use moves beyond the
+form the policy-writers had in mind, does the university's documentation still
+connect the situation to someone with the authority, criteria, safeguards and
+review process needed to handle it responsibly? I built a method to test that,
+scenario by scenario, against real institutional documentation — and applied
+it across a set of Western Australian universities.
 
 ## Problem
 
-Universities assert that their generative-AI rules are clear and fair. But
-clarity is only testable at the point of decision. There is little evidence on
-whether different institutional policies, applied to identical facts, converge
-on the same outcome — or whether outcomes depend more on where a student
-happens to be enrolled than on what they actually did.
+Universities have produced AI principles and policies at speed. But a
+published principle can be defensible on its own terms while still leaving
+basic governance questions unanswered for an unfamiliar case: who is allowed
+to decide, what criteria they should use, what process an affected person can
+use, and where review or escalation sits. Those gaps matter more as AI moves
+from bounded, visible assistance towards more autonomous or delegated forms of
+use. Reading policies for content cannot surface this; the documentation has
+to be tested against realistic pressure.
 
 ## My role
 
-Sole researcher: designed the vignette set, selected the policy corpus,
-performed the structured application of each policy to each case, and coded
-the outcomes. [Add collaborator details if applicable.]
+Sole researcher, working under the supervision of Dr Jon Mason at Charles
+Darwin University: designed the method, built the documentary corpus and
+scenario set, carried out the coding, and led the analysis.
 
 ## Research question
 
-Do different university generative-AI policies, applied to the same student
-behaviour, produce consistent decisions — and where they diverge, what features
-of the policies explain the divergence?
+As the type of AI use in a scenario becomes less familiar and more autonomous,
+does a university's published governance still connect it to an accountable,
+sufficiently specific institutional response — and where does that connection
+break down?
 
 ## Method
 
-1. Construct a set of fictional but realistic student AI-use vignettes — 75
-   scenario-based cases built to date (see the Case Portfolio for the
-   published examples).
-2. For each policy in the corpus, answer a fixed sequence of questions about
-   each vignette using only the policy text.
-3. Record the outcome for every policy–case pair using four categories.
-4. Analyse patterns of agreement and divergence across institutions and case
-   features.
-
-## Outcome categories
-
-Each policy–case pair is classified as one of:
-
-- **Acceptable** — the policy clearly permits the behaviour
-- **Misconduct** — the policy clearly prohibits the behaviour
-- **Disclosure problem** — the use itself is permitted but the acknowledgement requirements were breached
-- **Unclear** — the policy does not determine an outcome for these facts
-
-## Tools
-
-Vignette design, structured decision protocol, spreadsheet-based outcome
-matrix, qualitative memo-writing on divergent pairs.
-
-## Process
-
-Vignettes are held constant; only the policy varies. Every judgement must cite
-the specific policy clause relied on, and pairs where no clause decides the
-case are recorded as *unclear* rather than resolved by intuition — the
-inability of a policy to decide is itself a finding. I log every coding
-decision against its source clause, producing an audit record a second
-reviewer could check.
+I collected the complete set of publicly available governance-relevant
+documents for each university in the study — policies, principles, procedures
+and guidance, not just the primary academic-integrity policy — and built a
+fixed, quality-screened set of scenarios spanning a deliberate range of AI
+involvement, from routine, bounded assistance through to more autonomous,
+delegated forms of action. Each scenario was applied to each university's
+documentation using a structured response chain that checks, in order,
+whether authority, procedure, decision criteria, safeguards and review remain
+connected as the scenario gets harder. A non-compensatory decision rule means
+a strong showing on one dimension cannot cover for a missing one — a
+university either has a workable pathway for a given scenario, or it does not.
 
 ## Findings
 
-> Findings are reported only once verified against the completed outcome matrix.
-
-- [Add verified finding here]
-- [Add verified finding here]
+The analysis is complete and reported in a manuscript currently under peer
+review, so I am not publishing specific figures here yet — the exact results
+belong in the published version, not a preview of it. In general terms:
+governance held together reasonably well for the most familiar, bounded forms
+of AI assistance, and became markedly less reliable as scenarios moved toward
+more autonomous or delegated AI action. The most common weak point was not a
+complete absence of governance — most universities named *someone* responsible
+even for unfamiliar cases — but a lack of sufficiently specific criteria,
+safeguards or review attached to that role. Full results, tables and the
+coding protocol will be added to this page once the manuscript completes
+review.
 
 ## Outputs
 
-- Policy–case outcome matrix — [in preparation]
-- The fictional case set, published in the Case Portfolio section of this site
-- [Add paper or report details when confirmed]
+- A manuscript reporting the full method and results — currently under peer
+  review. Details and a preprint link will be added once available; happy to
+  share the current draft on request.
+- The scenario-design and coding protocol underlying this study also informs
+  the fictional Case Portfolio published elsewhere on this site.
 
 ## Impact
 
-- [Add verified impact here]
+Too early to report a verified, external impact — the manuscript has not yet
+completed review. The clearest impact so far is internal: the method now
+structures how I evaluate governance documentation across my other projects.
 
 ## Limitations
 
-- Decisions are made from policy text alone; real decision-makers use context,
-  precedent and discretion the study cannot capture.
-- The vignette set cannot cover the full space of student behaviour.
-- Single-analyst application of policies limits inter-rater reliability claims;
-  the protocol is designed so the exercise can be replicated.
+- Decisions are made from published documentation alone; real institutional
+  decision-making also draws on unwritten precedent, discretion and context
+  the method cannot observe.
+- The scenario set is deliberately focused and cannot cover the full space of
+  possible AI use.
+- A second coder checked a portion of the classifications for reliability, but
+  the bulk of the coding was carried out by a single analyst; the protocol is
+  documented so the study can be independently replicated.
 
 ## Lessons learned
 
-- Forcing every decision to cite a clause exposes how much everyday integrity
-  decision-making rests on unwritten interpretation.
-- [Add further lessons as the project concludes]
+- The hard part was never detecting whether a governance document existed —
+  it was tracing whether authority, criteria, safeguards and review actually
+  stayed connected to each other as a scenario got less familiar.
+- Forcing every judgement to cite the specific clause it relied on turned out
+  to be the single most useful design decision: it makes "the policy doesn't
+  actually decide this" a visible, countable finding rather than something
+  that gets quietly smoothed over.
 
 ## Related publication
 
-- [Add related publication when available]
+Manuscript under peer review. I will link the published version here once it
+is available — in the meantime, get in touch if you would like to see the
+current draft.
 
 ## Downloadable materials
 
-- [Add the decision protocol to public/downloads/ and list it in the frontmatter `downloads` field]
+Not yet published while the manuscript is under review. The coding protocol
+will be made available here after publication.
