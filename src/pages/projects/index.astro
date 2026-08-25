@@ -1,0 +1,72 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { projectCategoryLabels } from "../../lib/labels";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const categories = Object.entries(projectCategoryLabels).filter(([key]) =>
+  projects.some((p) => p.data.category === key),
+);
+---
+
+<PageLayout
+  title="Projects"
+  description="Research and technical projects by Biranchi Poudyal on generative AI, academic integrity and responsible AI in education."
+  eyebrow="Research in Practice"
+  heading="Projects"
+  lead="Case studies in policy analysis, empirical research, decision frameworks, technical systems and responsible-AI workflow design."
+>
+  <div
+    id="project-filters"
+    role="group"
+    aria-label="Filter projects by category"
+    class="no-print mb-8 flex flex-wrap gap-2"
+  >
+    <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">
+      All
+    </button>
+    {
+      categories.map(([key, label]) => (
+        <button type="button" class="filter-btn" data-filter={key} aria-pressed="false">
+          {label}
+        </button>
+      ))
+    }
+  </div>
+
+  <div id="project-grid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {projects.map((project) => <ProjectCard project={project} />)}
+  </div>
+
+  <p id="project-empty" class="hidden py-10 text-center text-sm text-zinc-500 dark:text-zinc-400">
+    No projects match this filter yet.
+  </p>
+</PageLayout>
+
+<script>
+  const grid = document.getElementById("project-grid");
+  const buttons = document.querySelectorAll<HTMLButtonElement>(
+    "#project-filters .filter-btn",
+  );
+  const cards = grid ? Array.from(grid.children) as HTMLElement[] : [];
+  const empty = document.getElementById("project-empty");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      buttons.forEach((b) => b.setAttribute("aria-pressed", "false"));
+      btn.setAttribute("aria-pressed", "true");
+      const filter = btn.dataset.filter;
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const match = filter === "all" || card.dataset.category === filter;
+        card.style.display = match ? "" : "none";
+        if (match) visibleCount++;
+      });
+      empty?.classList.toggle("hidden", visibleCount > 0);
+    });
+  });
+</script>

@@ -1,0 +1,160 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import PageLayout from "../../../layouts/PageLayout.astro";
+import ProjectCard from "../../../components/ProjectCard.astro";
+import DecisionFrameworkTool from "../../../components/DecisionFrameworkTool.astro";
+import {
+  formatDate,
+  projectCategoryLabels,
+  projectStatusLabels,
+} from "../../../lib/labels";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const d = project.data;
+
+const allProjects = await getCollection("projects");
+const relatedProjects = d.related
+  .map((slug) => allProjects.find((p) => p.id === slug))
+  .filter((p): p is CollectionEntry<"projects"> => Boolean(p));
+
+let relatedPublication = null;
+if (d.relatedPublication) {
+  const publications = await getCollection("publications");
+  relatedPublication = publications.find((p) => p.id === d.relatedPublication) ?? null;
+}
+---
+
+<PageLayout
+  title={d.title}
+  description={d.summary}
+  heading={d.title}
+  lead={d.summary}
+  article
+  breadcrumbs={[{ label: "Projects", href: "/projects/" }, { label: d.title }]}
+>
+  <div class="mb-8 flex flex-wrap items-center gap-2 text-xs">
+    <span
+      class="rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-0.5 font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+    >
+      {projectCategoryLabels[d.category]}
+    </span>
+    <span class="text-zinc-500 dark:text-zinc-400">{projectStatusLabels[d.status]}</span>
+    <span class="text-zinc-400 dark:text-zinc-600">· Last updated {formatDate(d.updated)}</span>
+    {
+      d.liveUrl && (
+        <a
+          href={d.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="no-print ml-auto rounded-md bg-accent px-3 py-1 font-semibold text-white hover:bg-accent-dark"
+        >
+          Try it live ↗
+        </a>
+      )
+    }
+  </div>
+
+  <div class="grid gap-10 lg:grid-cols-[1fr_260px]">
+    <div class="prose prose-zinc max-w-none dark:prose-invert">
+      <Content />
+    </div>
+
+    <aside class="no-print space-y-6 lg:border-l lg:border-zinc-100 lg:pl-6 dark:lg:border-zinc-900">
+      {
+        d.tools.length > 0 && (
+          <div>
+            <h2 class="text-xs font-semibold tracking-wide text-zinc-500 uppercase dark:text-zinc-400">
+              Tools & methods
+            </h2>
+            <ul class="mt-2 space-y-1">
+              {d.tools.map((tool) => (
+                <li class="text-sm text-zinc-700 dark:text-zinc-300">{tool}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+
+      {
+        d.downloads.length > 0 && (
+          <div>
+            <h2 class="text-xs font-semibold tracking-wide text-zinc-500 uppercase dark:text-zinc-400">
+              Downloadable materials
+            </h2>
+            <ul class="mt-2 space-y-1">
+              {d.downloads.map((file) => (
+                <li>
+                  <a
+                    href={file.href}
+                    class="text-sm text-accent hover:underline dark:text-cyan-300"
+                  >
+                    {file.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+
+      {
+        relatedPublication && (
+          <div>
+            <h2 class="text-xs font-semibold tracking-wide text-zinc-500 uppercase dark:text-zinc-400">
+              Related publication
+            </h2>
+            <a
+              href={`/publications/#${relatedPublication.id}`}
+              class="mt-2 block text-sm text-accent hover:underline dark:text-cyan-300"
+            >
+              {relatedPublication.data.title}
+            </a>
+          </div>
+        )
+      }
+
+      <div>
+        <h2 class="text-xs font-semibold tracking-wide text-zinc-500 uppercase dark:text-zinc-400">
+          Page actions
+        </h2>
+        <button
+          type="button"
+          onclick="window.print()"
+          class="mt-2 rounded border border-zinc-200 px-3 py-1.5 text-sm text-zinc-700 hover:border-accent hover:text-accent dark:border-zinc-700 dark:text-zinc-300"
+        >
+          Print this case study
+        </button>
+      </div>
+    </aside>
+  </div>
+
+  {project.id === "academic-integrity-decision-framework" && <DecisionFrameworkTool />}
+
+  {
+    relatedProjects.length > 0 && (
+      <section aria-labelledby="related-heading" class="no-print mt-16 border-t border-zinc-100 pt-10 dark:border-zinc-900">
+        <h2 id="related-heading" class="font-serif text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+          Related projects
+        </h2>
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {relatedProjects.map((p) => (
+            <ProjectCard project={p} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+</PageLayout>

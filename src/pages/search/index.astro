@@ -1,0 +1,104 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+import { url } from "../../lib/paths";
+---
+
+<PageLayout
+  title="Search"
+  description="Search research, projects, case studies, publications and technical writing on this site."
+  heading="Search"
+  lead="Search across research themes, projects, case studies, publications and technical writing."
+>
+  <div class="max-w-xl">
+    <label for="search-input" class="sr-only">Search the site</label>
+    <input
+      id="search-input"
+      type="search"
+      placeholder="Search for a topic, project or publication…"
+      autocomplete="off"
+      data-index-url={url("/search-index.json")}
+      class="w-full rounded-md border border-zinc-300 px-4 py-3 text-base focus-visible:border-accent dark:border-zinc-700 dark:bg-zinc-900"
+    />
+  </div>
+
+  <p id="search-status" class="mt-4 text-sm text-zinc-500 dark:text-zinc-400" aria-live="polite">
+    Start typing to search.
+  </p>
+
+  <ul id="search-results" class="mt-6 space-y-4"></ul>
+</PageLayout>
+
+<script>
+  interface SearchRecord {
+    title: string;
+    description: string;
+    url: string;
+    section: string;
+  }
+
+  const input = document.getElementById("search-input") as HTMLInputElement | null;
+  const status = document.getElementById("search-status");
+  const results = document.getElementById("search-results");
+  let index: SearchRecord[] = [];
+
+  async function loadIndex() {
+    if (!input) return;
+    try {
+      const res = await fetch(input.dataset.indexUrl ?? "");
+      index = await res.json();
+      if (status) status.textContent = "Start typing to search.";
+    } catch {
+      if (status) status.textContent = "Search index failed to load.";
+    }
+  }
+
+  function render(records: SearchRecord[], query: string) {
+    if (!results || !status) return;
+    results.innerHTML = "";
+    if (query.length === 0) {
+      status.textContent = "Start typing to search.";
+      return;
+    }
+    if (records.length === 0) {
+      status.textContent = `No results for "${query}".`;
+      return;
+    }
+    status.textContent = `${records.length} result${records.length === 1 ? "" : "s"} for "${query}".`;
+    for (const record of records) {
+      const li = document.createElement("li");
+      li.className =
+        "rounded-lg border border-zinc-200 p-4 dark:border-zinc-800";
+      li.innerHTML = `
+        <span class="text-xs font-medium text-accent dark:text-cyan-300">${record.section}</span>
+        <h2 class="mt-1 font-serif text-base font-semibold text-zinc-900 dark:text-zinc-100">
+          <a href="${record.url}" class="hover:underline">${record.title}</a>
+        </h2>
+        <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">${record.description}</p>
+      `;
+      results.appendChild(li);
+    }
+  }
+
+  function search(query: string) {
+    const q = query.trim().toLowerCase();
+    if (q.length === 0) return render([], "");
+    const matches = index.filter(
+      (r) =>
+        r.title.toLowerCase().includes(q) ||
+        r.description.toLowerCase().includes(q) ||
+        r.section.toLowerCase().includes(q),
+    );
+    render(matches, query);
+  }
+
+  let debounceTimer: ReturnType<typeof setTimeout>;
+  input?.addEventListener("input", () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => search(input.value), 120);
+  });
+
+  loadIndex();
+
+  // Focus the search box automatically when arriving on this page.
+  input?.focus();
+</script>

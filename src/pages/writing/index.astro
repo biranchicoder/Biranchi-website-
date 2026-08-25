@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+import WritingCard from "../../components/WritingCard.astro";
+
+const samples = (await getCollection("writing")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<PageLayout
+  title="Technical Writing"
+  description="Professional and technical writing samples by Biranchi Poudyal: staff and student guides, policy briefs, SOPs, documentation and help articles."
+  eyebrow="Writing Samples"
+  heading="Technical Writing"
+  lead="Writing samples that demonstrate translating research and policy into guidance people can actually use."
+>
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {samples.map((sample) => <WritingCard sample={sample} />)}
+  </div>
+</PageLayout>

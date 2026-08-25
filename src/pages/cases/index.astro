@@ -1,0 +1,82 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+import CaseCard from "../../components/CaseCard.astro";
+import { decisionLabels } from "../../lib/labels";
+
+const cases = (await getCollection("cases")).sort(
+  (a, b) => a.data.caseNumber - b.data.caseNumber,
+);
+
+const decisions = Object.entries(decisionLabels).filter(([key]) =>
+  cases.some((c) => c.data.decision === key),
+);
+---
+
+<PageLayout
+  title="Case Portfolio"
+  description="A filterable portfolio of fictional student generative-AI use cases, analysed using a structured academic-integrity decision framework."
+  eyebrow="Academic Integrity"
+  heading="Case Portfolio"
+  lead="Fictional student generative-AI use cases, analysed with a structured decision framework for research and professional demonstration."
+>
+  <div
+    role="note"
+    class="mb-8 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 dark:border-amber-900 dark:bg-amber-950 dark:text-amber-200"
+  >
+    <strong>All cases on this page are fictional.</strong> They were created to
+    demonstrate research and professional analysis skills and do not describe
+    real students, real institutions or real events. No confidential student
+    data is displayed anywhere on this site.
+  </div>
+
+  <div
+    id="case-filters"
+    role="group"
+    aria-label="Filter cases by decision"
+    class="no-print mb-8 flex flex-wrap gap-2"
+  >
+    <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">
+      All decisions
+    </button>
+    {
+      decisions.map(([key, label]) => (
+        <button type="button" class="filter-btn" data-filter={key} aria-pressed="false">
+          {label}
+        </button>
+      ))
+    }
+  </div>
+
+  <div id="case-grid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {cases.map((c) => <CaseCard caseEntry={c} />)}
+  </div>
+
+  <p id="case-empty" class="hidden py-10 text-center text-sm text-zinc-500 dark:text-zinc-400">
+    No cases match this filter yet.
+  </p>
+</PageLayout>
+
+<script>
+  const grid = document.getElementById("case-grid");
+  const buttons = document.querySelectorAll<HTMLButtonElement>(
+    "#case-filters .filter-btn",
+  );
+  const cards = grid ? (Array.from(grid.children) as HTMLElement[]) : [];
+  const empty = document.getElementById("case-empty");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      buttons.forEach((b) => b.setAttribute("aria-pressed", "false"));
+      btn.setAttribute("aria-pressed", "true");
+      const filter = btn.dataset.filter;
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const match = filter === "all" || card.dataset.decision === filter;
+        card.style.display = match ? "" : "none";
+        if (match) visibleCount++;
+      });
+      empty?.classList.toggle("hidden", visibleCount > 0);
+    });
+  });
+</script>

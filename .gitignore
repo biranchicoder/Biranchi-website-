@@ -1,0 +1,20 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# environment
+.env
+.env.production
+
+# system files
+.DS_Store
+Thumbs.db
+
+# logs
+npm-debug.log*
+
+# raw source material (already extracted into public/)
+Resource/

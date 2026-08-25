@@ -1,0 +1,28 @@
+{
+  "name": "biranchi-poudyal-portfolio",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Professional portfolio website of Biranchi Poudyal — researcher in Generative AI, academic integrity, human-AI education and responsible AI.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.4.0",
+    "astro": "^5.12.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.1.11",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3",
+    "vite": "^6.4.1"
+  },
+  "overrides": {
+    "vite": "^6.4.1"
+  }
+}

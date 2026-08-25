@@ -1,0 +1,100 @@
+---
+import { getCollection, render } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+
+const all = await getCollection("research");
+const doctoral = all.find((r) => r.data.type === "doctoral");
+const themes = all
+  .filter((r) => r.data.type === "theme")
+  .sort((a, b) => a.data.order - b.data.order);
+const methods = all
+  .filter((r) => r.data.type === "method")
+  .sort((a, b) => a.data.order - b.data.order);
+
+const { Content: DoctoralContent } = doctoral
+  ? await render(doctoral)
+  : { Content: null };
+---
+
+<PageLayout
+  title="Research"
+  description="Doctoral research, research themes and research methods of Biranchi Poudyal, covering generative AI, epistemic agency and education."
+  eyebrow="Doctoral Research Programme"
+  heading="Research"
+  lead="My research programme, its guiding themes and the methods I use to pursue it."
+>
+  <div class="space-y-14">
+    {
+      doctoral && (
+        <section aria-labelledby="doctoral-heading" data-reveal>
+          <p class="text-sm font-medium tracking-wide text-accent uppercase dark:text-cyan-300">
+            Doctoral research
+          </p>
+          <h2
+            id="doctoral-heading"
+            class="mt-2 font-serif text-2xl font-semibold text-zinc-900 dark:text-zinc-100"
+          >
+            {doctoral.data.title}
+          </h2>
+          <div class="prose prose-zinc mt-4 max-w-3xl dark:prose-invert">
+            {DoctoralContent && <DoctoralContent />}
+          </div>
+        </section>
+      )
+    }
+
+    <section aria-labelledby="themes-heading" data-reveal>
+      <h2
+        id="themes-heading"
+        class="font-serif text-2xl font-semibold text-zinc-900 dark:text-zinc-100"
+      >
+        Research themes
+      </h2>
+      <p class="mt-2 max-w-2xl text-sm text-zinc-600 dark:text-zinc-400">
+        Seven connected themes structure my doctoral work and downstream
+        projects.
+      </p>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        {
+          themes.map((theme) => (
+            <div class="rounded-lg border border-zinc-200 p-5 dark:border-zinc-800">
+              <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                {theme.data.title}
+              </h3>
+              <p class="mt-1.5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                {theme.data.summary}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section aria-labelledby="methods-heading" data-reveal>
+      <h2
+        id="methods-heading"
+        class="font-serif text-2xl font-semibold text-zinc-900 dark:text-zinc-100"
+      >
+        Research methods
+      </h2>
+      <p class="mt-2 max-w-2xl text-sm text-zinc-600 dark:text-zinc-400">
+        The methodological toolkit I use across projects, matched to the kind
+        of question being asked.
+      </p>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        {
+          methods.map((method) => (
+            <div class="rounded-lg border border-zinc-200 p-5 dark:border-zinc-800">
+              <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                {method.data.title}
+              </h3>
+              <p class="mt-1.5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                {method.data.summary}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</PageLayout>

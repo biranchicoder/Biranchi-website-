@@ -1,0 +1,77 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+import { siteConfig, isPlaceholder } from "../../config";
+
+const profiles = [
+  { label: "LinkedIn", value: "biranchi-poudyal", href: siteConfig.profiles.linkedin },
+  { label: "Website", value: "biranchipoudyal.com.np", href: siteConfig.profiles.website },
+  { label: "Google Scholar", value: "View profile", href: siteConfig.profiles.googleScholar },
+  { label: "ORCID", value: "0000-0002-7210-5480", href: siteConfig.profiles.orcid },
+  { label: "GitHub", value: siteConfig.profiles.github },
+];
+---
+
+<PageLayout
+  title="Contact"
+  description="Contact details for Biranchi Poudyal — email, phone and professional profiles — for research collaboration, roles in AI and education, or speaking opportunities."
+  eyebrow="Get in touch"
+  heading="Contact"
+  lead="I welcome enquiries about research collaboration, roles in AI and education, policy consultation, and speaking opportunities."
+>
+  <div class="max-w-xl">
+    <div class="flex flex-wrap gap-3">
+      <a
+        href={`mailto:${siteConfig.email}`}
+        class="rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent-dark"
+      >
+        Email {siteConfig.email}
+      </a>
+      <a
+        href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}
+        class="rounded-md border border-zinc-300 px-5 py-2.5 text-sm font-semibold text-zinc-800 hover:border-accent hover:text-accent dark:border-zinc-700 dark:text-zinc-200"
+      >
+        {siteConfig.phone}
+      </a>
+    </div>
+
+    <dl class="mt-10 space-y-4">
+      {
+        profiles.map((p) => (
+          <div class="flex items-baseline justify-between gap-4 border-b border-zinc-100 pb-3 dark:border-zinc-900">
+            <dt class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+              {p.label}
+            </dt>
+            <dd class="text-sm text-zinc-700 dark:text-zinc-300">
+              {isPlaceholder(p.value) ? (
+                <span class="text-zinc-400 italic dark:text-zinc-500">
+                  {p.value}
+                </span>
+              ) : (
+                <a
+                  href={p.href ?? p.value}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-accent hover:underline dark:text-cyan-300"
+                >
+                  {p.value}
+                </a>
+              )}
+            </dd>
+          </div>
+        ))
+      }
+      <div class="flex items-baseline justify-between gap-4 pb-3">
+        <dt class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+          Location
+        </dt>
+        <dd class="text-sm text-zinc-700 dark:text-zinc-300">
+          {siteConfig.location}
+        </dd>
+      </div>
+    </dl>
+
+    <p class="mt-6 text-xs text-zinc-500 dark:text-zinc-500">
+      Update these details in <code>src/config.ts</code>.
+    </p>
+  </div>
+</PageLayout>

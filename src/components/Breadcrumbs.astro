@@ -1,0 +1,47 @@
+---
+import { url } from "../lib/paths";
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: Crumb[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="no-print mb-6 text-sm">
+  <ol class="flex flex-wrap items-center gap-1 text-zinc-500 dark:text-zinc-400">
+    <li>
+      <a
+        href={url("/")}
+        class="hover:text-accent dark:hover:text-cyan-300">Home</a
+      >
+    </li>
+    {
+      items.map((item, i) => (
+        <li class="flex items-center gap-1">
+          <span aria-hidden="true">/</span>
+          {item.href && i < items.length - 1 ? (
+            <a
+              href={url(item.href)}
+              class="hover:text-accent dark:hover:text-cyan-300"
+            >
+              {item.label}
+            </a>
+          ) : (
+            <span
+              aria-current="page"
+              class="font-medium text-zinc-700 dark:text-zinc-300"
+            >
+              {item.label}
+            </span>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

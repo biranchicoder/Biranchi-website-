@@ -1,0 +1,270 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+import { siteConfig } from "../../config";
+import { url } from "../../lib/paths";
+
+interface Entry {
+  heading: string;
+  subheading?: string;
+  detail?: string;
+  meta?: string;
+  href?: string;
+}
+
+interface Section {
+  title: string;
+  entries?: Entry[];
+  items?: string[];
+  link?: { label: string; href: string };
+}
+
+const sections: Section[] = [
+  {
+    title: "Education",
+    entries: [
+      {
+        heading: "Doctor of Philosophy (PhD) in Generative AI — Ongoing (expected completion February 2027)",
+        subheading: "Charles Darwin University, Australia",
+        detail:
+          'Research focus: investigating the impact of generative AI on knowledge formation, learning processes and educational agency in contemporary pedagogy. Thesis: "The Role of Generative AI and Agency in the Epistemological Foundations of Contemporary Pedagogy."',
+      },
+      {
+        heading: "Master's Degree in International Relations and Diplomacy (2017–2019)",
+        detail:
+          'Foreign Policy · Small States · Research Methodology — GPA 3.33/4. Thesis: "Nepal in Geopolitical Chessboard: Opportunities and Challenges."',
+      },
+      {
+        heading: "Master's Degree of Arts in English Literature (2016–2018)",
+        detail:
+          'Academic Writing · Prose and Poetry · Literature — GPA 3.4/4. Thesis: "Rhetorical Analysis of Articles on the Millennium Challenge Corporation (MCC)."',
+      },
+      {
+        heading: "Bachelor's Degree in Arts, BA (2012–2015)",
+        detail:
+          'Major: English · Social Work · Journalism — 60.00%. Academic research: "Woman Sexual Harassment in Workplace."',
+      },
+    ],
+  },
+  {
+    title: "Research experience",
+    entries: [
+      {
+        heading: "Doctoral Researcher — Generative AI and Education",
+        subheading: "Charles Darwin University, Australia · Feb 2023 – present",
+        detail:
+          "Investigate how generative AI changes knowledge formation, human agency, academic work and institutional responsibility. Designed and ran an institutional AI-governance stress test covering 75 scenario-based cases across five Australian universities, backed by human verification and audit records. Analyse scholarly literature, institutional policies and AI-assisted outputs using structured coding, evidence synthesis and source validation.",
+      },
+      {
+        heading: "Research Fellowship",
+        subheading:
+          "Institute of South Asian Studies, Sichuan University · March–July 2018",
+        detail:
+          'Research paper and presentation: "Game Theory Analysis of the Trade War Between the United States and China." Second research output, "Economic Prospect of Belt and Road Initiatives in Nepal," was later published (see Publications).',
+      },
+    ],
+  },
+  {
+    title: "Employment",
+    entries: [
+      {
+        heading: "Generative AI Model Training — Internship",
+        subheading: "Neorise Pty Ltd, Australia · Sep–Oct 2023",
+        detail:
+          "Sourced and annotated training data for machine learning models; helped design AI interactions and human-AI interfaces; conducted user research and led user-testing sessions on generative AI model behaviour.",
+        href: "https://www.neorise.com.au/",
+      },
+      {
+        heading: "Content Writer",
+        subheading: "The Value Crew · May 2021 – June 2023",
+        detail:
+          "Developed content and copy across blogs, articles, social media, landing pages and email campaigns; optimised content for SEO and managed multi-project content delivery against marketing deadlines.",
+        href: "https://thevaluecrew.com/",
+      },
+      {
+        heading: "Senior Researcher and Writer",
+        subheading: "Pioneer Research Center Nepal · June 2019 – June 2023",
+        detail:
+          "Authored research reports, white papers and grant proposals; translated complex social-science research into accessible content; contributed publications and media content on behalf of the centre.",
+        href: "https://www.prcnepal.org/",
+      },
+      {
+        heading: "Freelance Writer and Researcher",
+        subheading: "Self-employed · 2016 – present",
+        detail:
+          "Ghostwriting, copywriting, independent research and publication support. Statement of Purpose (SOP) consultant — helped edit 5,000+ students' SOPs for university and visa applications to Australia, Canada, the UK, New Zealand and Germany.",
+        href: "https://biranchiwritely.com/",
+      },
+    ],
+  },
+  {
+    title: "Publications",
+    items: [
+      "Six peer-reviewed publications, including Q1 and Q2 journal articles, one research-fellowship conference presentation, and professional op-ed writing for national and international outlets.",
+    ],
+    link: { label: "View the full, categorised list →", href: "/publications/" },
+  },
+  {
+    title: "Projects",
+    items: [
+      "Australian University Generative-AI Policy Analysis",
+      "From Policy to Decision",
+      "Academic Integrity Decision Framework",
+      "AI Policy Extraction System",
+      "Responsible Human–AI Content Workflow",
+      "Assignment Thinking Assistant (live tool)",
+    ],
+    link: { label: "View Projects →", href: "/projects/" },
+  },
+  {
+    title: "Technical skills",
+    items: [
+      "Python for research tooling and data extraction",
+      "Astro, TypeScript, Tailwind CSS (this website)",
+      "LLM-API-based structured data extraction (Gemini API)",
+      "Spreadsheet-based coding and data management",
+    ],
+  },
+  {
+    title: "Methods",
+    items: [
+      "Systematic and scoping literature review",
+      "Qualitative coding and thematic analysis",
+      "Discourse and document analysis",
+      "Comparative policy analysis and conceptual synthesis",
+    ],
+  },
+  {
+    title: "Professional skills",
+    items: [
+      "Persuasive copywriting across digital and print media",
+      "Editing and proofreading to publication standard",
+      "Translating complex ideas into clear, accessible language",
+      "Cross-functional collaboration with researchers, marketers and designers",
+    ],
+  },
+  {
+    title: "Professional development",
+    items: ["[Add courses, workshops or training completed]"],
+  },
+  {
+    title: "Awards",
+    entries: [
+      {
+        heading: "First Runner-up — Research Article Writing Competition",
+        subheading: "Nepal Army Unity Journal",
+        href: "https://www.nepalarmy.mil.np/viewnews/481",
+      },
+      {
+        heading: "First Runner-up — Research Article Writing Competition",
+        subheading: "Nepal Army KTFT Journal, Volume II",
+      },
+    ],
+  },
+  {
+    title: "Memberships",
+    items: ["[Add professional or academic society memberships, if any]"],
+  },
+  {
+    title: "Referees",
+    entries: [
+      {
+        heading: "Dr Jon Mason, PhD",
+        subheading:
+          "Associate Professor in Education (e-Learning), Charles Darwin University — PhD Supervisor",
+      },
+      {
+        heading: "Dr Khadga KC, PhD",
+        subheading:
+          "Professor, Department of International Relations and Diplomacy, Tribhuvan University",
+      },
+      {
+        heading: "Bhuvan Dharel",
+        subheading: "Founder, Pioneer Research Center Nepal",
+        href: "https://prcnepal.org/",
+      },
+    ],
+    items: ["Full contact details available on request."],
+  },
+];
+---
+
+<PageLayout
+  title="CV"
+  description="Curriculum vitae summary for Biranchi Poudyal: education, research experience, publications, projects, skills and methods."
+  eyebrow="Résumé"
+  heading="Curriculum Vitae"
+  lead="A summary CV. Download the full PDF for complete, current details."
+>
+  <div class="no-print mb-10">
+    <a
+      href={url(siteConfig.cvFile)}
+      download
+      class="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent-dark"
+    >
+      Download full CV (PDF)
+    </a>
+  </div>
+
+  <div class="space-y-10">
+    {
+      sections.map((section) => (
+        <section aria-labelledby={section.title.replace(/\s+/g, "-").toLowerCase()}>
+          <h2
+            id={section.title.replace(/\s+/g, "-").toLowerCase()}
+            class="font-serif text-xl font-semibold text-zinc-900 dark:text-zinc-100"
+          >
+            {section.title}
+          </h2>
+
+          {section.entries && (
+            <div class="mt-3 space-y-4">
+              {section.entries.map((entry) => (
+                <div>
+                  <p class="text-sm font-semibold text-zinc-800 dark:text-zinc-200">
+                    {entry.href ? (
+                      <a
+                        href={entry.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="hover:text-accent hover:underline dark:hover:text-cyan-300"
+                      >
+                        {entry.heading}
+                      </a>
+                    ) : (
+                      entry.heading
+                    )}
+                  </p>
+                  {entry.subheading && (
+                    <p class="text-xs text-zinc-500 dark:text-zinc-500">{entry.subheading}</p>
+                  )}
+                  {entry.detail && (
+                    <p class="mt-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                      {entry.detail}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {section.items && (
+            <ul class="mt-3 space-y-1.5">
+              {section.items.map((item) => (
+                <li class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{item}</li>
+              ))}
+            </ul>
+          )}
+
+          {section.link && (
+            <a
+              href={url(section.link.href)}
+              class="mt-2 inline-block text-sm font-semibold text-accent hover:underline dark:text-cyan-300"
+            >
+              {section.link.label}
+            </a>
+          )}
+        </section>
+      ))
+    }
+  </div>
+</PageLayout>

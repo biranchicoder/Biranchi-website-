@@ -1,0 +1,51 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import PageLayout from "../../../layouts/PageLayout.astro";
+import { docTypeLabels, formatDate } from "../../../lib/labels";
+
+export async function getStaticPaths() {
+  const samples = await getCollection("writing");
+  return samples.map((sample) => ({
+    params: { id: sample.id },
+    props: { sample },
+  }));
+}
+
+interface Props {
+  sample: CollectionEntry<"writing">;
+}
+
+const { sample } = Astro.props;
+const { Content } = await render(sample);
+const d = sample.data;
+---
+
+<PageLayout
+  title={d.title}
+  description={d.summary}
+  heading={d.title}
+  lead={d.summary}
+  article
+  breadcrumbs={[{ label: "Technical Writing", href: "/writing/" }, { label: d.title }]}
+>
+  <div class="mb-8 flex flex-wrap items-center gap-3 text-xs">
+    <span
+      class="rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-0.5 font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+    >
+      {docTypeLabels[d.docType]}
+    </span>
+    <span class="text-zinc-500 dark:text-zinc-400">Audience: {d.audience}</span>
+    <span class="text-zinc-400 dark:text-zinc-600">· Last updated {formatDate(d.updated)}</span>
+    <button
+      type="button"
+      onclick="window.print()"
+      class="no-print ml-auto rounded border border-zinc-200 px-3 py-1 text-zinc-700 hover:border-accent hover:text-accent dark:border-zinc-700 dark:text-zinc-300"
+    >
+      Print
+    </button>
+  </div>
+
+  <div class="prose prose-zinc max-w-none dark:prose-invert">
+    <Content />
+  </div>
+</PageLayout>

@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { url } from "../lib/paths";
+import { docTypeLabels } from "../lib/labels";
+
+interface Props {
+  sample: CollectionEntry<"writing">;
+}
+
+const { sample } = Astro.props;
+const d = sample.data;
+---
+
+<article
+  class="flex h-full flex-col rounded-lg border border-zinc-200 bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
+>
+  <span
+    class="self-start rounded-full border border-accent/20 bg-accent/[0.06] px-2.5 py-0.5 text-xs font-medium text-accent-dark dark:border-cyan-900 dark:bg-cyan-400/10 dark:text-cyan-300"
+  >
+    {docTypeLabels[d.docType]}
+  </span>
+  <h3 class="mt-3 font-serif text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+    <a
+      href={url(`/writing/${sample.id}/`)}
+      class="hover:text-accent dark:hover:text-cyan-300"
+    >
+      {d.title}
+    </a>
+  </h3>
+  <p class="mt-2 flex-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+    {d.summary}
+  </p>
+  <p class="mt-4 text-xs text-zinc-500 dark:text-zinc-500">
+    Audience: {d.audience}
+  </p>
+</article>

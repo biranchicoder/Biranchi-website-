@@ -1,0 +1,100 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+import PublicationEntry from "../../components/PublicationEntry.astro";
+import { publicationStatusLabels } from "../../lib/labels";
+
+const publications = (await getCollection("publications")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const statuses = Object.entries(publicationStatusLabels).filter(([key]) =>
+  publications.some((p) => p.data.status === key),
+);
+---
+
+<PageLayout
+  title="Publications"
+  description="Professional articles on generative AI and education by Biranchi Poudyal, with academic publications to follow as his doctoral research progresses."
+  eyebrow="Scholarly & Professional Output"
+  heading="Publications"
+  lead="Professional writing on generative AI and education. Peer-reviewed publications from my doctoral research will appear here as they are completed."
+>
+  <div
+    id="pub-filters"
+    role="group"
+    aria-label="Filter publications by status"
+    class="no-print mb-8 flex flex-wrap gap-2"
+  >
+    <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">
+      All
+    </button>
+    {
+      statuses.map(([key, label]) => (
+        <button type="button" class="filter-btn" data-filter={key} aria-pressed="false">
+          {label}
+        </button>
+      ))
+    }
+  </div>
+
+  <div id="pub-list" class="space-y-4">
+    {publications.map((pub) => <PublicationEntry pub={pub} />)}
+  </div>
+
+  <p id="pub-empty" class="hidden py-10 text-center text-sm text-zinc-500 dark:text-zinc-400">
+    No publications match this filter yet.
+  </p>
+</PageLayout>
+
+<script>
+  const list = document.getElementById("pub-list");
+  const buttons = document.querySelectorAll<HTMLButtonElement>(
+    "#pub-filters .filter-btn",
+  );
+  const items = list ? (Array.from(list.children) as HTMLElement[]) : [];
+  const empty = document.getElementById("pub-empty");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      buttons.forEach((b) => b.setAttribute("aria-pressed", "false"));
+      btn.setAttribute("aria-pressed", "true");
+      const filter = btn.dataset.filter;
+      let visibleCount = 0;
+      items.forEach((item) => {
+        const match = filter === "all" || item.dataset.status === filter;
+        item.style.display = match ? "" : "none";
+        if (match) visibleCount++;
+      });
+      empty?.classList.toggle("hidden", visibleCount > 0);
+    });
+  });
+
+  // Copy-citation and BibTeX-download buttons (present on every publication card).
+  document.querySelectorAll<HTMLButtonElement>(".copy-citation").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const text = btn.dataset.citation ?? "";
+      try {
+        await navigator.clipboard.writeText(text);
+        const original = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(() => (btn.textContent = original), 1500);
+      } catch {
+        window.prompt("Copy citation:", text);
+      }
+    });
+  });
+
+  document.querySelectorAll<HTMLButtonElement>(".download-bibtex").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const bibtex = btn.dataset.bibtex ?? "";
+      const key = btn.dataset.key ?? "citation";
+      const blob = new Blob([bibtex], { type: "application/x-bibtex" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${key}.bib`;
+      link.click();
+      URL.revokeObjectURL(link.href);
+    });
+  });
+</script>
