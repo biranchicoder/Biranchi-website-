@@ -32,7 +32,7 @@ export const siteConfig = {
     website: "http://www.biranchipoudyal.com.np/",
     googleScholar: "https://scholar.google.com/citations?user=ZpMf554AAAAJ&hl=en",
     orcid: "https://orcid.org/0000-0002-7210-5480",
-    github: "[Add GitHub profile URL]",
+    github: "https://github.com/biranchicoder",
   },
 
   /** Path (under /public) of the downloadable CV. */
