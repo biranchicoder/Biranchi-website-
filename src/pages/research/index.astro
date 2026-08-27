@@ -36,7 +36,7 @@ const { Content: DoctoralContent } = doctoral
           >
             {doctoral.data.title}
           </h2>
-          <div class="prose prose-zinc mt-4 max-w-3xl dark:prose-invert">
+          <div class="prose prose-stone mt-4 max-w-3xl dark:prose-invert">
             {DoctoralContent && <DoctoralContent />}
           </div>
         </section>
@@ -57,7 +57,7 @@ const { Content: DoctoralContent } = doctoral
       <div class="mt-6 grid gap-4 sm:grid-cols-2">
         {
           themes.map((theme) => (
-            <div class="rounded-lg border border-stone-200 p-5 dark:border-stone-800">
+            <div class="rounded-xl border border-stone-200 p-5 dark:border-stone-800">
               <h3 class="text-sm font-semibold text-stone-900 dark:text-stone-100">
                 {theme.data.title}
               </h3>
@@ -84,7 +84,7 @@ const { Content: DoctoralContent } = doctoral
       <div class="mt-6 grid gap-4 sm:grid-cols-2">
         {
           methods.map((method) => (
-            <div class="rounded-lg border border-stone-200 p-5 dark:border-stone-800">
+            <div class="rounded-xl border border-stone-200 p-5 dark:border-stone-800">
               <h3 class="text-sm font-semibold text-stone-900 dark:text-stone-100">
                 {method.data.title}
               </h3>

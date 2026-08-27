@@ -1,4 +1,4 @@
-﻿---
+---
 /**
  * Interactive walkthrough of the Academic Integrity Decision Framework.
  * Client-side only — nothing is transmitted or stored. Mirrors the reasoning
@@ -62,7 +62,7 @@ const questions = [
 <section
   aria-labelledby="try-framework-heading"
   data-reveal
-  class="no-print not-prose mt-16 rounded-lg border border-accent/30 bg-accent-soft p-6 dark:border-violet-900 dark:bg-stone-900"
+  class="no-print not-prose mt-16 rounded-xl border border-accent/30 bg-accent-soft p-6 dark:border-violet-900 dark:bg-stone-900"
 >
   <h2
     id="try-framework-heading"
@@ -111,7 +111,7 @@ const questions = [
     </button>
   </form>
 
-  <div id="framework-result" class="mt-6 hidden rounded-lg border p-4" role="status">
+  <div id="framework-result" class="mt-6 hidden rounded-xl border p-4" role="status">
   </div>
 </section>
 
@@ -187,7 +187,7 @@ const questions = [
     if (!resultBox) return;
     resultBox.classList.remove("hidden");
     const badgeClass = decisionBadgeClasses[decision];
-    resultBox.className = `mt-6 rounded-lg border p-4 ${badgeClass}`;
+    resultBox.className = `mt-6 rounded-xl border p-4 ${badgeClass}`;
     resultBox.innerHTML = `
       <p class="text-sm font-semibold">Suggested outcome: ${decisionLabels[decision]}</p>
       <p class="mt-1 text-sm">${reason}</p>
