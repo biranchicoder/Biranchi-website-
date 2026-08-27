@@ -1,6 +1,7 @@
 ---
 title: "Academic Integrity Decision Framework"
 summary: "A six-question framework that structures fair, consistent decisions about student generative-AI use in assessment."
+keyInsight: "Separating disclosure failures from authorship failures stops honest, permitted-but-poorly-acknowledged AI use from being treated as contract cheating."
 category: framework
 tools: ["Conceptual synthesis", "Case testing", "Policy analysis"]
 status: ongoing

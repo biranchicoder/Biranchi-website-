@@ -1,6 +1,7 @@
 ---
 title: "Do University AI Policies Actually Decide Cases?"
 summary: "A vignette-based test of whether the published policy environment at 20 Australian universities actually resolves common AI-assisted student behaviours, or leaves them ambiguous."
+keyInsight: "Transparent, verified AI use was consistently the most clearly resolved by published policy — ambiguous or partially-disclosed use often wasn't resolved at all."
 category: policy-analysis
 tools: ["Vignette methodology", "Structured policy classification", "Dual-coder reliability testing"]
 status: completed

@@ -32,6 +32,16 @@ const {
 ---
 
 <BaseLayout title={title} description={description} article={article}>
+  {
+    article && (
+      <div
+        id="reading-progress"
+        class="no-print fixed top-0 left-0 z-50 h-0.5 w-0 bg-accent dark:bg-violet-400"
+        role="progressbar"
+        aria-hidden="true"
+      />
+    )
+  }
   {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
   <header class="mb-10 max-w-3xl">
     {eyebrow && <p class="eyebrow mb-2">{eyebrow}</p>}
@@ -50,3 +60,28 @@ const {
   </header>
   <slot />
 </BaseLayout>
+
+{
+  article && (
+    <script>
+      const bar = document.getElementById("reading-progress");
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      if (bar) {
+        if (!prefersReducedMotion) {
+          bar.style.transition = "width 150ms ease-out";
+        }
+        const update = () => {
+          const docHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
+          const pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+          bar.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+        };
+        update();
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+      }
+    </script>
+  )
+}

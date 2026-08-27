@@ -1,6 +1,7 @@
 ---
 title: "AI Policy Extraction System"
 summary: "A Python pipeline using web extraction and the Gemini API to collect, structure and organise university AI-policy information, with human verification of every record."
+keyInsight: "Every AI-extracted field is treated as a claim, not data, until a human checks it against the source — extraction speed never substitutes for verification."
 category: technical
 tools: ["Python", "Web extraction", "Gemini API", "Structured JSON outputs", "Human verification workflow"]
 status: in-progress

@@ -1,6 +1,7 @@
 ---
 title: "Responsible Human–AI Content Workflow"
 summary: "A documented, human-led workflow in which AI assists with drafting, organising, coding and formatting while humans remain responsible for meaning, accuracy, ethics and final approval."
+keyInsight: "Most corrections happen at the verification stage, not the drafting stage — AI-assisted first drafts are rarely wrong in an obviously detectable way."
 category: workflow
 tools: ["Workflow design", "LLM-assisted drafting", "Verification checklists", "Documentation"]
 status: ongoing

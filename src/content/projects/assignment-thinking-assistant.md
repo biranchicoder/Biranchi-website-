@@ -1,6 +1,7 @@
 ---
 title: "Assignment Thinking Assistant"
 summary: "A live web tool that coaches students through structured thinking on an assignment — planning, questioning and evaluating their own reasoning — instead of generating answers for them."
+keyInsight: "Asking structuring questions instead of drafting content was the design choice that kept the tool from quietly turning into an essay generator."
 category: technical
 tools: ["TypeScript", "Web application", "Prompt design", "Vercel deployment"]
 status: ongoing

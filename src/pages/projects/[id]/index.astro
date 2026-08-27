@@ -4,6 +4,8 @@ import PageLayout from "../../../layouts/PageLayout.astro";
 import ProjectCard from "../../../components/ProjectCard.astro";
 import DecisionFrameworkTool from "../../../components/DecisionFrameworkTool.astro";
 import MethodDiagram from "../../../components/MethodDiagram.astro";
+import BrowserFrame from "../../../components/BrowserFrame.astro";
+import { url } from "../../../lib/paths";
 import {
   formatDate,
   projectCategoryLabels,
@@ -71,6 +73,15 @@ if (d.relatedPublication) {
   <div class="grid gap-10 lg:grid-cols-[1fr_260px]">
     <div class="prose prose-stone max-w-none dark:prose-invert">
       <Content />
+      {
+        project.id === "assignment-thinking-assistant" && (
+          <BrowserFrame
+            src={url("/images/assignment-thinking-assistant-screenshot.png")}
+            alt="Screenshot of the Assignment Thinking Assistant landing page — 'Write with clarity. Think with integrity.'"
+            url="assignment-thinking-assistant.vercel.app"
+          />
+        )
+      }
     </div>
 
     <aside class="no-print space-y-6 lg:border-l lg:border-stone-100 lg:pl-6 dark:lg:border-stone-900">

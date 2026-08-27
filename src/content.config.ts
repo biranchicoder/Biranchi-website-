@@ -24,6 +24,9 @@ const projects = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string(),
+    /** One-sentence takeaway shown on the project card, so visitors get the
+     * value without clicking through. */
+    keyInsight: z.string().optional(),
     category: z.enum([
       "policy-analysis",
       "empirical-study",

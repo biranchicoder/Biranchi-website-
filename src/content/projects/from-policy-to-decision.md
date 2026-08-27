@@ -1,6 +1,7 @@
 ---
 title: "Testing How University AI Governance Holds Up Under Pressure"
 summary: "A scenario-based method that tests whether a university's public AI-governance documents still produce an accountable decision as AI use moves from simple assistance toward more autonomous, delegated action."
+keyInsight: "The most common weak point wasn't a missing rule — it was a named responsible role with no specific criteria, safeguards or review to back it up."
 category: empirical-study
 tools: ["Document analysis", "Scenario-based stress testing", "Structured coding protocol", "Independent reliability checking"]
 status: completed
