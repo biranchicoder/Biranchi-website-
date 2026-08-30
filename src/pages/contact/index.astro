@@ -2,7 +2,7 @@
 import PageLayout from "../../layouts/PageLayout.astro";
 import { siteConfig, isPlaceholder } from "../../config";
 
-const profiles = [
+const profiles: { label: string; value: string; href: string }[] = [
   { label: "LinkedIn", value: "biranchi-poudyal", href: siteConfig.profiles.linkedin },
   { label: "Website", value: "biranchipoudyal.com.np", href: siteConfig.profiles.website },
   { label: "Google Scholar", value: "View profile", href: siteConfig.profiles.googleScholar },
@@ -13,7 +13,7 @@ const profiles = [
 
 <PageLayout
   title="Contact"
-  description="Contact details for Biranchi Poudyal — email, phone and professional profiles — for research collaboration, roles in AI and education, or speaking opportunities."
+  description="Contact details for Biranchi Poudyal — email, phone and professional profiles — for research collaboration, AI and education roles, or speaking opportunities."
   eyebrow="Get in touch"
   heading="Contact"
   lead="I welcome enquiries about research collaboration, roles in AI and education, policy consultation, and speaking opportunities."
