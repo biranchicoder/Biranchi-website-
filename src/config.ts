@@ -8,8 +8,7 @@
  */
 export const siteConfig = {
   name: "Biranchi Poudyal",
-  title:
-    "Biranchi Poudyal — Researcher in Generative AI, Academic Integrity and Human–AI Education",
+  title: "Biranchi Poudyal — Generative AI & Education Researcher",
   tagline:
     "Researcher in Generative AI, Academic Integrity and Human–AI Education",
   description:
