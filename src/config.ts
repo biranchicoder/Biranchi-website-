@@ -36,6 +36,15 @@ export const siteConfig = {
 
   /** Path (under /public) of the downloadable CV. */
   cvFile: "/Biranchi-Poudyal-CV.pdf",
+
+  /**
+   * Search-engine ownership verification codes. Get these from Google
+   * Search Console ("HTML tag" verification method) and Bing Webmaster
+   * Tools, then paste just the content value here — leave empty to omit
+   * the tag entirely.
+   */
+  googleSiteVerification: "",
+  bingSiteVerification: "",
 } as const;
 
 /** Returns true when a config value is still an unedited placeholder. */

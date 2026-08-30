@@ -34,6 +34,12 @@ const personJsonLd = JSON.stringify({
     addressCountry: "AU",
   },
   url: Astro.site?.toString(),
+  sameAs: [
+    siteConfig.profiles.googleScholar,
+    siteConfig.profiles.linkedin,
+    siteConfig.profiles.orcid,
+    siteConfig.profiles.github,
+  ],
   knowsAbout: [
     "Generative AI in education",
     "Academic integrity",
@@ -70,6 +76,19 @@ const personJsonLd = JSON.stringify({
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
 
+    {
+      siteConfig.googleSiteVerification && (
+        <meta
+          name="google-site-verification"
+          content={siteConfig.googleSiteVerification}
+        />
+      )
+    }
+    {
+      siteConfig.bingSiteVerification && (
+        <meta name="msvalidate.01" content={siteConfig.bingSiteVerification} />
+      )
+    }
     <link rel="icon" href={url("/favicon.ico")} sizes="any" />
     <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
     <link
