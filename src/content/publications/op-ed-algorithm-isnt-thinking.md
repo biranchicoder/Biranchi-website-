@@ -8,5 +8,5 @@ abstract: "Applies game-theoretic reasoning to student use of generative AI in a
 link: "https://www.sydneytimes.net.au/letters-to-the-editor-and-opinion/the-algorithm-isnt-thinking-you-are/"
 citation: "Poudyal, B. (2025, May 25). The algorithm isn't thinking, you are. The Sydney Times."
 placeholder: false
-order: 3
+order: 5
 ---

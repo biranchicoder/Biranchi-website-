@@ -21,9 +21,15 @@ export const publicationStatusLabels: Record<string, string> = {
   published: "Published",
   accepted: "Accepted",
   "under-review": "Under Review",
+  preprint: "Preprint",
   conference: "Conference Papers",
   "policy-report": "Policy Reports",
   professional: "Professional Articles",
+};
+
+export const publicationGroupLabels: Record<string, string> = {
+  ai: "AI & Governance Research",
+  other: "Other Scholarly Publications",
 };
 
 export const decisionLabels: Record<string, string> = {

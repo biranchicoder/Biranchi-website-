@@ -2,10 +2,14 @@
 import { getCollection } from "astro:content";
 import PageLayout from "../../layouts/PageLayout.astro";
 import PublicationEntry from "../../components/PublicationEntry.astro";
-import { publicationStatusLabels } from "../../lib/labels";
+import { publicationStatusLabels, publicationGroupLabels } from "../../lib/labels";
 
 const publications = (await getCollection("publications")).sort(
   (a, b) => a.data.order - b.data.order,
+);
+
+const groups = Object.entries(publicationGroupLabels).filter(([key]) =>
+  publications.some((p) => p.data.group === key),
 );
 
 const statuses = Object.entries(publicationStatusLabels).filter(([key]) =>
@@ -15,11 +19,32 @@ const statuses = Object.entries(publicationStatusLabels).filter(([key]) =>
 
 <PageLayout
   title="Publications"
-  description="Professional articles on generative AI and education by Biranchi Poudyal, with academic publications to follow as his doctoral research progresses."
+  description="Academic and professional publications by Biranchi Poudyal on responsible AI and AI governance, alongside earlier scholarly work in international relations and management."
   eyebrow="Scholarly & Professional Output"
   heading="Publications"
-  lead="Professional writing on generative AI and education. Peer-reviewed publications from my doctoral research will appear here as they are completed."
+  lead="Research and professional writing on responsible AI and AI governance, plus earlier scholarly publications from before this research focus."
 >
+  <div
+    id="pub-groups"
+    role="tablist"
+    aria-label="Filter publications by research area"
+    class="no-print mb-4 flex flex-wrap gap-2 border-b border-stone-200 pb-4 dark:border-stone-800"
+  >
+    {
+      groups.map(([key, label], i) => (
+        <button
+          type="button"
+          class="group-btn"
+          data-group={key}
+          role="tab"
+          aria-selected={i === 0 ? "true" : "false"}
+        >
+          {label}
+        </button>
+      ))
+    }
+  </div>
+
   <div
     id="pub-filters"
     role="group"
@@ -49,26 +74,49 @@ const statuses = Object.entries(publicationStatusLabels).filter(([key]) =>
 
 <script>
   const list = document.getElementById("pub-list");
-  const buttons = document.querySelectorAll<HTMLButtonElement>(
+  const groupButtons = document.querySelectorAll<HTMLButtonElement>(
+    "#pub-groups .group-btn",
+  );
+  const statusButtons = document.querySelectorAll<HTMLButtonElement>(
     "#pub-filters .filter-btn",
   );
   const items = list ? (Array.from(list.children) as HTMLElement[]) : [];
   const empty = document.getElementById("pub-empty");
 
-  buttons.forEach((btn) => {
+  let activeGroup = groupButtons[0]?.dataset.group ?? "all";
+  let activeStatus = "all";
+
+  function applyFilters() {
+    let visibleCount = 0;
+    items.forEach((item) => {
+      const match =
+        item.dataset.group === activeGroup &&
+        (activeStatus === "all" || item.dataset.status === activeStatus);
+      item.style.display = match ? "" : "none";
+      if (match) visibleCount++;
+    });
+    empty?.classList.toggle("hidden", visibleCount > 0);
+  }
+
+  groupButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      buttons.forEach((b) => b.setAttribute("aria-pressed", "false"));
-      btn.setAttribute("aria-pressed", "true");
-      const filter = btn.dataset.filter;
-      let visibleCount = 0;
-      items.forEach((item) => {
-        const match = filter === "all" || item.dataset.status === filter;
-        item.style.display = match ? "" : "none";
-        if (match) visibleCount++;
-      });
-      empty?.classList.toggle("hidden", visibleCount > 0);
+      groupButtons.forEach((b) => b.setAttribute("aria-selected", "false"));
+      btn.setAttribute("aria-selected", "true");
+      activeGroup = btn.dataset.group ?? "all";
+      applyFilters();
     });
   });
+
+  statusButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      statusButtons.forEach((b) => b.setAttribute("aria-pressed", "false"));
+      btn.setAttribute("aria-pressed", "true");
+      activeStatus = btn.dataset.filter ?? "all";
+      applyFilters();
+    });
+  });
+
+  applyFilters();
 
   // Copy-citation and BibTeX-download buttons (present on every publication card).
   document.querySelectorAll<HTMLButtonElement>(".copy-citation").forEach((btn) => {

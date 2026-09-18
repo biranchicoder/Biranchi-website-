@@ -8,6 +8,7 @@ status: completed
 order: 1
 updated: 2026-08-26
 related: ["australian-university-genai-policy-analysis", "academic-integrity-decision-framework"]
+relatedPublication: "preprint-stress-testing-governance"
 downloads: []
 ---
 
@@ -76,8 +77,9 @@ review.
 ## Outputs
 
 - A manuscript reporting the full method and results — currently under peer
-  review. Details and a preprint link will be added once available; happy to
-  share the current draft on request.
+  review. A preprint of the method is available now on arXiv (see Related
+  publication below); the peer-reviewed version and full results will be
+  linked here once review completes.
 - The scenario-design and coding protocol underlying this study also informs
   the fictional Case Portfolio published elsewhere on this site.
 
@@ -110,9 +112,10 @@ structures how I evaluate governance documentation across my other projects.
 
 ## Related publication
 
-Manuscript under peer review. I will link the published version here once it
-is available — in the meantime, get in touch if you would like to see the
-current draft.
+A preprint reporting the method is available on arXiv (arXiv:2608.28925). The
+peer-reviewed journal submission is still under review, so the figures and
+university-by-university breakdown above are held back until that process
+completes — see the Publications page for the preprint.
 
 ## Downloadable materials
 

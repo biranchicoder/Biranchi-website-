@@ -103,6 +103,14 @@ html.js-reveal-ready [data-reveal]:not(.is-visible) {
   @apply border-accent bg-accent text-white dark:border-violet-300 dark:bg-violet-300 dark:text-stone-900;
 }
 
+/* Group tabs (Publications: research area). */
+.group-btn {
+  @apply rounded-md px-3 py-2 text-sm font-semibold text-stone-500 transition-colors hover:text-accent dark:text-stone-500 dark:hover:text-violet-300;
+}
+.group-btn[aria-selected="true"] {
+  @apply border-b-2 border-accent text-accent dark:border-violet-300 dark:text-violet-300;
+}
+
 /* Print styles: hide chrome, show content cleanly. */
 @media print {
   header,

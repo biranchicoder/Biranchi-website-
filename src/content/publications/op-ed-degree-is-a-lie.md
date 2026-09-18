@@ -8,5 +8,5 @@ abstract: "Argues that universities misrepresent what degrees certify in the age
 link: "https://ia.acs.org.au/article/2026/the-degree-is-a-lie-we-ve-agreed-not-to-notice.html"
 citation: "Poudyal, B. (2026, May 12). The degree is a lie we've agreed not to notice. Information Age, ACS."
 placeholder: false
-order: 1
+order: 3
 ---

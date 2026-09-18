@@ -90,10 +90,13 @@ const publications = defineCollection({
       "published",
       "accepted",
       "under-review",
+      "preprint",
       "conference",
       "policy-report",
       "professional",
     ]),
+    /** ai = AI/governance research; other = scholarly work outside that focus. */
+    group: z.enum(["ai", "other"]).default("ai"),
     abstract: z.string().optional(),
     doi: z.string().optional(),
     link: z.string().optional(),
