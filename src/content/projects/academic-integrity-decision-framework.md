@@ -5,7 +5,7 @@ keyInsight: "Separating disclosure failures from authorship failures stops hones
 category: framework
 tools: ["Conceptual synthesis", "Case testing", "Policy analysis"]
 status: ongoing
-order: 3
+order: 4
 updated: 2026-07-28
 related: ["from-policy-to-decision", "australian-university-genai-policy-analysis"]
 downloads: []

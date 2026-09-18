@@ -8,11 +8,10 @@
  */
 export const siteConfig = {
   name: "Biranchi Poudyal",
-  title: "Biranchi Poudyal — Generative AI & Education Researcher",
-  tagline:
-    "Researcher in Generative AI, Academic Integrity and Human–AI Education",
+  title: "Biranchi Poudyal — Responsible AI & AI Governance",
+  tagline: "Responsible AI & AI Governance Researcher",
   description:
-    "Portfolio of Biranchi Poudyal, PhD candidate researching generative AI, epistemic agency, academic integrity, assessment policy and responsible AI in education.",
+    "Portfolio of Biranchi Poudyal, PhD researcher in responsible AI and AI governance for generative AI systems, applied primarily in higher education.",
   location: "Sydney, Australia",
 
   /** Contact email shown on the Contact page. */

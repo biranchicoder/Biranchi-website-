@@ -52,10 +52,22 @@ const stats = [
 
 const expertise = [
   {
-    title: "Generative AI & Education",
-    text: "How AI systems reshape learning, teaching, assessment and the meaning of knowing.",
-    href: "/research/",
-    icon: "M12 14l9-5-9-5-9 5 9 5Zm0 0l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 0 12 20.055a11.952 11.952 0 0 0-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14Zm-9-2v6",
+    title: "Responsible AI & AI Governance",
+    text: "Scenario-based stress-testing of whether institutional AI governance produces accountable decisions as AI capability increases.",
+    href: "/projects/from-policy-to-decision/",
+    icon: "M12 3v18M5 7l-3 6a4 4 0 0 0 8 0l-3-6M19 7l-3 6a4 4 0 0 0 8 0l-3-6M5 7h14M8 21h8",
+  },
+  {
+    title: "AI Policy Evaluation",
+    text: "Testing whether published AI policy actually resolves realistic, real-world cases of AI-assisted work.",
+    href: "/projects/australian-university-genai-policy-analysis/",
+    icon: "M21 21l-4.35-4.35M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z",
+  },
+  {
+    title: "Human–AI Systems & Oversight",
+    text: "How responsibility, verification and decision authority should be allocated when humans work with generative AI.",
+    href: "/projects/responsible-human-ai-content-workflow/",
+    icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065ZM15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
   },
   {
     title: "Academic Integrity",
@@ -64,16 +76,10 @@ const expertise = [
     icon: "M9 12.75 11.25 15 15 9.75M12 3l7.5 3v6c0 4.5-3 8.25-7.5 9.75C7.5 21 4.5 17.25 4.5 12.75V6L12 3Z",
   },
   {
-    title: "Policy Analysis",
-    text: "Systematic comparison of institutional AI governance and its real-world consistency.",
-    href: "/projects/australian-university-genai-policy-analysis/",
-    icon: "M12 3v18M5 7l-3 6a4 4 0 0 0 8 0l-3-6M19 7l-3 6a4 4 0 0 0 8 0l-3-6M5 7h14M8 21h8",
-  },
-  {
-    title: "Responsible AI Practice",
-    text: "Human-led AI workflows where accountability, verification and ethics stay with people.",
-    href: "/projects/responsible-human-ai-content-workflow/",
-    icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065ZM15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
+    title: "Generative AI & Higher Education",
+    text: "How AI systems reshape learning, teaching, assessment and the meaning of knowing — my primary application domain.",
+    href: "/research/",
+    icon: "M12 14l9-5-9-5-9 5 9 5Zm0 0l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 0 12 20.055a11.952 11.952 0 0 0-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14Zm-9-2v6",
   },
   {
     title: "Qualitative Research",
@@ -121,12 +127,18 @@ const expertise = [
     <p
       class="relative mt-4 max-w-3xl font-serif text-xl leading-relaxed text-stone-700 sm:text-2xl dark:text-stone-300"
     >
-      Researcher in Generative AI, Academic Integrity and Human–AI Education
+      Responsible AI & AI Governance Researcher
+    </p>
+    <p class="relative mt-2 max-w-2xl text-sm font-medium tracking-wide text-stone-500 uppercase dark:text-stone-400">
+      Generative AI · AI Governance · Human–AI Systems · Higher Education
     </p>
     <p class="relative mt-6 max-w-2xl text-lg leading-relaxed text-stone-600 dark:text-stone-400">
-      My work examines how generative AI changes knowledge, assessment,
-      authorship, academic integrity and human agency in education — and how
-      universities can respond with policy that is clear, fair and workable.
+      I research how institutions govern, evaluate and take accountability
+      for generative AI systems — testing whether governance produces
+      accountable, consistent decisions as AI capability increases. Higher
+      education is my primary application domain and evidence base: I study
+      how universities can respond with policy that is clear, fair and
+      workable.
     </p>
     <div class="relative mt-8 flex flex-wrap items-center gap-3">
       <a
@@ -312,7 +324,9 @@ const expertise = [
         form, justify and take responsibility for knowledge — is preserved,
         redistributed or eroded when cognitive work is shared with AI systems,
         and what that means for assessment, integrity and AI governance in
-        higher education.
+        higher education. It sits within a broader research programme on AI
+        governance and responsible AI deployment, for which higher education
+        is currently the most tested application domain.
       </p>
       <a
         href={url("/research/")}
@@ -394,17 +408,19 @@ const expertise = [
     </h2>
     <div class="mt-4 max-w-3xl space-y-4 text-stone-600 dark:text-stone-400">
       <p>
-        I am a PhD candidate based in Sydney, Australia, researching generative
-        AI, epistemic agency and education. My work sits at the intersection of
-        philosophy of education, academic integrity and AI policy: I study how
-        universities regulate student AI use, whether those rules produce fair
-        and consistent decisions, and how assessment can preserve human agency
-        when machines can produce credible academic work.
+        I am a PhD candidate based in Sydney, Australia, researching the
+        governance and responsible deployment of generative AI systems. My
+        work centres on a practical governance question: as AI systems take
+        on more cognitive and decision-making work, how do institutions
+        preserve human oversight, accountability and authority over outcomes
+        that matter? Higher education — where this question is playing out
+        fastest — is my primary evidence base, through my doctoral research
+        into how generative AI reshapes teaching, learning and assessment.
       </p>
       <p>
-        Alongside conceptual research, I build practical tools — decision
-        frameworks, policy-analysis pipelines and professional guidance — that
-        translate research into things institutions can use.
+        Alongside conceptual research, I build practical tools — AI-governance
+        evaluation pipelines, decision frameworks and professional guidance —
+        that translate research into things institutions can use.
       </p>
     </div>
     <a

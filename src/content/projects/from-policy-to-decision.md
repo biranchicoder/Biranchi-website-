@@ -5,7 +5,7 @@ keyInsight: "The most common weak point wasn't a missing rule — it was a named
 category: empirical-study
 tools: ["Document analysis", "Scenario-based stress testing", "Structured coding protocol", "Independent reliability checking"]
 status: completed
-order: 2
+order: 1
 updated: 2026-08-26
 related: ["australian-university-genai-policy-analysis", "academic-integrity-decision-framework"]
 downloads: []

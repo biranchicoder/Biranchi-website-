@@ -5,7 +5,7 @@ keyInsight: "Every AI-extracted field is treated as a claim, not data, until a h
 category: technical
 tools: ["Python", "Web extraction", "Gemini API", "Structured JSON outputs", "Human verification workflow"]
 status: in-progress
-order: 4
+order: 3
 updated: 2026-07-28
 related: ["australian-university-genai-policy-analysis", "responsible-human-ai-content-workflow"]
 downloads: []

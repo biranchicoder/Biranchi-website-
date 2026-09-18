@@ -5,7 +5,7 @@ keyInsight: "Transparent, verified AI use was consistently the most clearly reso
 category: policy-analysis
 tools: ["Vignette methodology", "Structured policy classification", "Dual-coder reliability testing"]
 status: completed
-order: 1
+order: 2
 updated: 2026-08-26
 related: ["from-policy-to-decision", "ai-policy-extraction-system"]
 downloads: []
